@@ -1,2 +1,1 @@
 # Pint-internship
-# Pint-internship
