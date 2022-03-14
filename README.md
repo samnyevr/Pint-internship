@@ -8,13 +8,13 @@ The company's website can be found here: [Pint Inc.](https://pint.com)
 
 Some topics to be covered in this **ever growing** and _ever living_ documentation are as follow
 
-- HTML specs
-- Markdown
-- Web Server
+- [X] HTML specs
+- [X] Markdown
+- [] Web Server
   - HTTP Request
   - CRUD functionality
   - URLs
-- Git
+- [X] Git
 
 Taking a break from this topic and adding a horizontal rule
 
