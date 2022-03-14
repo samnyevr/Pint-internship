@@ -10,7 +10,7 @@ Some topics to be covered in this **ever growing** and _ever living_ documentati
 
 - [X] HTML specs
 - [X] Markdown
-- [] Web Server
+- [ ] Web Server
   - HTTP Request
   - CRUD functionality
   - URLs
