@@ -8,11 +8,7 @@
       nonce="undefined"
       src="https://cdn.zingchart.com/zingchart.min.js"
     ></script>
-    <style>
-      #pieDay {
-        background-color: #c38b50;
-      }
-    </style>
+    <style></style>
   </head>
 
   <body>
@@ -25,6 +21,7 @@
       var myConfig = {
         type: "pie3d",
         "3d-aspect": {
+          true3d: true,
           "x-angle": 70,
           depth: 50,
           zoom: 1.5,
@@ -33,6 +30,8 @@
         labels: {},
         title: {
           text: "Happy Pie Day",
+          width: 150,
+          "font-size": 50,
         },
         plot: {
           detach: false,
@@ -43,19 +42,85 @@
         },
         yAngle: 50,
         shapes: [
+          // {
+          //   type: "poly",
+          //   shadowDistance: 15,
+          //   borderColor: "#532",
+          //   backgroundColor: "#e91e63",
+          //   points: [
+          //     [500, 310],
+          //     [520, 310],
+          //     [520, 360],
+          //     [400, 380],
+          //     [500, 310],
+          //   ],
+          //   x: 200,
+          //   y: 200,
+          // },
           {
-            type: "plus",
-            "line-width": 10,
-            "line-color": "#5297b6",
-            size: 100,
-            x: 500,
-            y: 200,
+            type: "ellipse",
+            angle: 10,
+            backgroundColor: "#D2744E",
+            x: 570,
+            y: 270,
+            size: 40,
+            size2: 10,
+          },
+          {
+            type: "ellipse",
+            angle: 70,
+            backgroundColor: "#D2744E",
+            x: 640,
+            y: 220,
+            size: 35,
+            size2: 10,
+          },
+          {
+            type: "ellipse",
+            angle: 110,
+            backgroundColor: "#D2744E",
+            x: 715,
+            y: 220,
+            size: 35,
+            size2: 10,
+          },
+          {
+            type: "ellipse",
+            angle: 230,
+            backgroundColor: "#D2744E",
+            x: 725,
+            y: 340,
+            size: 35,
+            size2: 10,
+          },
+          {
+            type: "ellipse",
+            angle: 290,
+            backgroundColor: "#D2744E",
+            x: 630,
+            y: 340,
+            size: 30,
+            size2: 10,
           },
         ],
         series: [
           {
-            values: [50],
-            backgroundColor: "#C38B50",
+            "border-width": 5,
+            "border-top-color": "red",
+            values: [5],
+            backgroundColor: "#FFB671",
+            facets: {
+              top: {
+                "background-color": "red",
+                alpha: 1,
+              },
+              bottom: {
+                alpha: 0,
+              },
+              front: {
+                alpha: 1,
+              },
+            },
           },
         ],
       };
