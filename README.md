@@ -36,7 +36,7 @@ Can ~~defnitely~~ definitely spell wrong somtimes, but nothing a little `console
       </body>
     </html>
 
-Since I am a VR guy, here is a ridiculous pic ![Cow in VR](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.theverge.com%2Ftldr%2F2019%2F11%2F26%2F20983717%2Fvr-virtual-reality-headsets-cows-russia-vr-trial&psig=AOvVaw3gmsZeJUZVgi2pPt5h3N_y&ust=1647365234704000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIin4u-PxvYCFQAAAAAdAAAAABAD)
+Since I am a VR guy, here is a ridiculous pic ![Cow in VR](<https://cdn.vox-cdn.com/thumbor/daieCuBvz9vyNReZHDtg1cMl5s0=/0x0:695x394/920x613/filters:focal(293x142:403x252):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/65776802/urqvy4uxj8ayRFX1mx7t3thsEAVOCFGF5q6e0t3Ngeg5LMviO4a9WMqdsAXwFMVJVk1FBzVnvCXc6nUExPn3W6ffA9DMztcr.0.jpg>)
 
 Here is a table of what's to come with my internship
 
