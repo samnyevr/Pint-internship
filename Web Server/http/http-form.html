@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTTP Form Method Form</title>
+    <style>
+      fieldset > * {
+        display: block;
+        margin-bottom: 20px;
+      }
+
+      input[type="submit"] {
+        display: inline;
+      }
+
+      input[type="textarea"] {
+        width: 500px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form method="GET">
+        <fieldset>
+          <legend>HTTP Method Form</legend>
+          <label for="">Title: <input type="text" /></label>
+          <label for="">Body: <input type="textarea" row="5" cols="5" /></label>
+          <input type="submit" value="PUT" />
+          <input type="submit" value="POST" />
+          <input type="submit" value="GET" />
+          <input type="submit" value="DELETE" />
+        </fieldset>
+      </form>
+      <p></p>
+    </main>
+    <script src="http-form.js"></script>
+  </body>
+</html>
