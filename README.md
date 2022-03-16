@@ -8,13 +8,13 @@ The company's website can be found here: [Pint Inc.](https://pint.com)
 
 Some topics to be covered in this **ever growing** and _ever living_ documentation are as follow
 
-- [X] HTML specs
-- [X] Markdown
+- [x] HTML specs
+- [x] Markdown
 - [ ] Web Server
   - HTTP Request
   - CRUD functionality
   - URLs
-- [X] Git
+- [x] Git
 
 Taking a break from this topic and adding a horizontal rule
 
@@ -26,15 +26,17 @@ Taking a break from this topic and adding a horizontal rule
 
 Can ~~defnitely~~ definitely spell wrong somtimes, but nothing a little `console.log()` can't solve while debugging.
 
-    <!DOCTYPE>
-    <html>
-      <head>
-        <title>Hello World I guess?</title>
-      </head>
-      <body>
-        <p>Hello World</p>
-      </body>
-    </html>
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World I guess?</title>
+  </head>
+  <body>
+    <p>Hello World</p>
+  </body>
+</html>
+```
 
 Since I am a VR guy, here is a ridiculous pic ![Cow in VR](<https://cdn.vox-cdn.com/thumbor/daieCuBvz9vyNReZHDtg1cMl5s0=/0x0:695x394/920x613/filters:focal(293x142:403x252):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/65776802/urqvy4uxj8ayRFX1mx7t3thsEAVOCFGF5q6e0t3Ngeg5LMviO4a9WMqdsAXwFMVJVk1FBzVnvCXc6nUExPn3W6ffA9DMztcr.0.jpg>)
 
