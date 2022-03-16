@@ -14,7 +14,11 @@ Some topics to be covered in this **ever growing** and _ever living_ documentati
   - HTTP Request
   - CRUD functionality
   - URLs
+  - Json Server
 - [x] Git
+- [ ] Image Optimization
+- [ ] Image Format
+- [ ]
 
 Taking a break from this topic and adding a horizontal rule
 
@@ -53,8 +57,12 @@ Since I am a VR guy, here is a ridiculous pic ![Cow in VR](<https://cdn.vox-cdn.
     </tr>
     <tr>
         <td>Website Evalutation</td>
+        <td>Image Optimization</td>
     </tr>
     <tr>
         <td>HTML playground</td>
+    </tr>
+    <tr>
+        <td>Web Server & HTTP Request methods</td>
     </tr>
 </table>

@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "json-server": "^0.17.0"
+  },
+  "name": "pint-internship",
+  "description": "## 3/7/2022 - current",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samnyevr/Pint-internship.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samnyevr/Pint-internship/issues"
+  },
+  "homepage": "https://github.com/samnyevr/Pint-internship#readme"
+}

@@ -1,13 +1,16 @@
-#Image Optimization
+# Image Optimization
 
 ## Image Format
-![Zoomed- in vector image vs raster image](https://web-dev.imgix.net/image/admin/dJuB2DQcbhtwD5VdPVlR.png?auto=format&w=1170
+
+![Zoomed- in vector image vs raster image](https://web-dev.imgix.net/image/admin/dJuB2DQcbhtwD5VdPVlR.png?auto=format&w=1170)
 
 ### Vector Graphics
+
 use lines, points, and polygons to represent an image
 use for logo, text, icons, drawing, shapes
 
 #### Pixel
+
 <table>
 	<tr>
 		<th>Screen resolution</th>
@@ -32,19 +35,20 @@ use for logo, text, icons, drawing, shapes
 </table>
 
 higher resolution screen require higher resolution images
-	
->use vector images whenever possible, and use responsive images if raster image is required
+
+> use vector images whenever possible, and use responsive images if raster image is required
 
 #### Image Format
-- SVG - Scalable Vector Graphics (.svg)
-	- **Compression:** 
-		- Size reduction by complexity reduction
-	- **functionality:** 
-		- With CSS Tricks, can probably produce the same outcome
 
+- SVG - Scalable Vector Graphics (.svg)
+  - **Compression:**
+    - Size reduction by complexity reduction
+  - **functionality:**
+    - With CSS Tricks, can probably produce the same outcome
 
 ### Raster graphics
-represent an image by encoding the individual values of each pixel within a rectangular grid. 
+
+represent an image by encoding the individual values of each pixel within a rectangular grid.
 use for high resolution illustration or photograph
 
 <table>
@@ -80,39 +84,40 @@ use for high resolution illustration or photograph
 	</tr>
 </table>
 
-*[WebP doesn't support IE](https://caniuse.com/webp)
+\*[WebP doesn't support IE](https://caniuse.com/webp)
 
 #### Image Format
 
 - **JPEG** - Joint Photographic Experts Group (.jpg, .jpeg)
-	- *Compression:* 
-		- Lossy
-	- *functionality:*
-		- may load progressively
-		- large color palette
+  - _Compression:_
+    - Lossy
+  - _functionality:_
+    - may load progressively
+    - large color palette
 - **PNG** - Porttable Network Graphics(.png, .png ico, .apng)
-	- *Compression:*
-		- Lossless, can be made lossy
-	- *functionality:*
-		- interlaced
+  - _Compression:_
+    - Lossless, can be made lossy
+  - _functionality:_
+    - interlaced
 - **WebP** (.webp)
-	- *Compression:*
-		- Lossless ~25% smaller than PNG
-		- Lossy ~25-30% smaller than JPEG
+  - _Compression:_
+    - Lossless ~25% smaller than PNG
+    - Lossy ~25-30% smaller than JPEG
 - **GIF** (.gif)
-	- *Compression:* 
-		- Lossless
-	- *funcitonality:*
-		- gif compression loses value at higher resolution images
-		- when using gif, 
+  - _Compression:_
+    - Lossless
+  - _funcitonality:_
+    - gif compression loses value at higher resolution images
+    - when using gif,
 - **Bitmap** (.bmp, .bmp ico)
-	- *Compression:* None
+  - _Compression:_ None
 - **EPS** (.eps)
-	- *Compression:* None
+  - _Compression:_ None
 - **RAW images Files** (.raw, .r2, .nef, etc.)
-	- *Compression:* None
+  - _Compression:_ None
 
 ## Image Optimization
+
 - bundle as sprites where appropriate
 - choose the right format
 - size appropriately
@@ -122,12 +127,13 @@ use for high resolution illustration or photograph
 - lazy load the rest
 - automate process with tools carefully
 
-###Approaches
->Less data, less often, when needed from nearby
+### Approaches
+
+> Less data, less often, when needed from nearby
 
 - Using `<picture>` tag
-	- fall through for unsupported types
-	- serving a different asset from a set URI depending on the language
+  - fall through for unsupported types
+  - serving a different asset from a set URI depending on the language
 
 ```
 <picture>
@@ -135,51 +141,57 @@ use for high resolution illustration or photograph
 	<img src="/path/to/image.jpg alt="alt text here">
 </picture>
 ```
+
 - Using `<video>` instead of GIPa or aPNG
 - Image Sprites
-	- create a sprite sheet that holds many images in a single one
-		- use css and/or JS to select the portion to show
+  - create a sprite sheet that holds many images in a single one
+    - use css and/or JS to select the portion to show
 - Set dimensions in `<img>` tag
 - Don't scale the image
 - Load only when needed
-	- possibility using preload techniques with headers or `<link>` tag
-	- Preload
-		- easily performed with `<link rel="preload" href="assetURL">`
-		- be careful about preloading assets that aren't used
+  - possibility using preload techniques with headers or `<link>` tag
+  - Preload
+    - easily performed with `<link rel="preload" href="assetURL">`
+    - be careful about preloading assets that aren't used
 - use the `<img>` attribute `lowsrc`
 - inline images
-	- concerns with both size and potentially security
+  - concerns with both size and potentially security
 
 ## From Web.dev on WebP
-- Webp format will generally provide better compression than older formats
+
+- **WebP** format will generally provide better compression than older formats
+- If WebP is not supported, fall back to **JPEG**
 - in terms of older image formats
-	- if you need animation, use `<video>` 
-	- [replace animated GIFs with video](https://web.dev/replace-gifs-with-videos/)
-- if you need to preserve fine detail with highest resolution, **use PNG**
-	- has higher filesize
-	- if with geometric shapes, use svg
-	- if need text, use web font
-- if you optimize a photo, screenshot, or image asset, **use JPEG**
+  - if you need animation, use `<video>`
+  - [replace animated GIFs with video](https://web.dev/replace-gifs-with-videos/)
+  - use **WebM** format whenever the format is supported
+  - if you absolutely need to preserve fine detail with highest resolution, use **PNG**
+    - has higher filesize
+    - if with geometric shapes, use svg
+    - if need text, use web font
 
 ## Some Other Insights
+
 ### Critical Rendering Path
 
 ### Preload
+
 - use `rel=` attribute in `<link>` tag to turn it into a preloader
 - use the `as` attribute, can help the browser to prioritize resources
 - can use media for image preload under different query sizes
 
-
 ## Conclusion
+
 - in general use SVG
 - if raster images are to be used
-	- use optimized PNG
-	- use TIFF or other raw formats if print output requires it
-	- avoid JPEG
-		- exceptions use JPEG for charts
-	- when doing compound documents consider PDF, HTML or Markdown or Officus suits or Bi platforms 
+  - use optimized PNG
+  - use TIFF or other raw formats if print output requires it
+  - avoid JPEG
+    - exceptions use JPEG for charts
+  - when doing compound documents consider PDF, HTML or Markdown or Officus suits or Bi platforms
 
 ## Links
+
 [Google web dev image optimization](https://web.dev/choose-the-right-image-format/)
 
 [Web Design Image Comparisons](https://webdesignref.com/examples/design_examples.htm)

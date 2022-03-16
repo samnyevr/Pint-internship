@@ -10,11 +10,11 @@
         margin-bottom: 20px;
       }
 
-      input[type="submit"] {
+      button[type="submit"] {
         display: inline;
       }
 
-      input[type="textarea"] {
+      textarea {
         width: 500px;
         height: 300px;
       }
@@ -25,16 +25,25 @@
       <form>
         <fieldset>
           <legend>HTTP Method Form</legend>
-          <label for="">Title: <input type="text" /></label>
-          <label for="">Body: <input type="textarea" row="5" cols="5" /></label>
+          <label for="form__id">id: <input id="form__id" type="text" /> </label>
+          <label for="form__title"
+            >Title: <input id="form__title" type="text"
+          /></label>
+          <label for="form__author"
+            >Author: <input id="form__author" type="text"
+          /></label>
+          <label for="form__comment"
+            >Comment: <textarea id="form__comment" row="5" cols="5"></textarea>
+          </label>
           <button type="submit" value="GET">GET</button>
           <button type="submit" value="POST">POST</button>
           <button type="submit" value="PUT">PUT</button>
           <button type="submit" value="DELETE">DELETE</button>
+          <button type="submit" value="PATCH">PATCH</button>
         </fieldset>
       </form>
       <p></p>
     </main>
-    <script src="http-form.js"></script>
+    <script src="json-server.js"></script>
   </body>
 </html>
