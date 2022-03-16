@@ -27,13 +27,14 @@
           <legend>HTTP Method Form</legend>
           <label for="form__id">id: <input id="form__id" type="text" /> </label>
           <label for="form__title"
-            >Title: <input id="form__title" type="text"
+            >Title: <input id="form__title" type="text" required
           /></label>
           <label for="form__author"
-            >Author: <input id="form__author" type="text"
+            >Author: <input id="form__author" type="text" required
           /></label>
           <label for="form__comment"
-            >Comment: <textarea id="form__comment" row="5" cols="5"></textarea>
+            >Comment:
+            <textarea id="form__comment" row="5" cols="5" required></textarea>
           </label>
           <button type="submit" value="GET">GET</button>
           <button type="submit" value="POST">POST</button>

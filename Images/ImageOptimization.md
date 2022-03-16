@@ -56,7 +56,7 @@ use for high resolution illustration or photograph
 		<th>Format</th>
 		<th>Transparency</th>
 		<th>Animation</th>
-		<th>Modern Browser</th>
+		<th>Modern Browser Support</th>
 	</tr>
 	<tr>
 		<td>GIF</td>
@@ -80,11 +80,20 @@ use for high resolution illustration or photograph
 		<td>WebP</td>
 		<td>Yes</td>
 		<td>Yes</td>
-		<td>All*</td>
+		<td>Edge, Firefox, Chrome</td>
+	</tr>
+	<tr>
+		<td>Avif</td>
+		<td>Yes</td>
+		<td>Yes</td>
+		<td>Firefox, Chrome</td>
 	</tr>
 </table>
 
-\*[WebP doesn't support IE](https://caniuse.com/webp)
+### Difference between _Lossless_ and _Lossy_
+
+**Lossless** - as the file size is compressed, the picture quality remains the same, and the file can be decompressed back to its original quality
+**Lossy** - Permanently removes unnecessary data, and this process can't be reversed
 
 #### Image Format
 
@@ -94,11 +103,16 @@ use for high resolution illustration or photograph
   - _functionality:_
     - may load progressively
     - large color palette
+    - no transparency supported
+    - not animated
 - **PNG** - Porttable Network Graphics(.png, .png ico, .apng)
   - _Compression:_
     - Lossless, can be made lossy
   - _functionality:_
     - interlaced
+    - bettter with higher bit depth than GIF
+    - better transparency option than GIF
+    - animated, but have some support issues
 - **WebP** (.webp)
   - _Compression:_
     - Lossless ~25% smaller than PNG
@@ -135,14 +149,14 @@ use for high resolution illustration or photograph
   - fall through for unsupported types
   - serving a different asset from a set URI depending on the language
 
-```
+```html
 <picture>
-	<course srcset="/path/to/image.webp" type="image/webp">
-	<img src="/path/to/image.jpg alt="alt text here">
+  <source srcset="/path/to/image.webp" type="image/webp" />
+  <img src="/path/to/image.jpg alt="alt text here">
 </picture>
 ```
 
-- Using `<video>` instead of GIPa or aPNG
+- Using `<video>` instead of GIFs or aPNG
 - Image Sprites
   - create a sprite sheet that holds many images in a single one
     - use css and/or JS to select the portion to show
@@ -161,14 +175,13 @@ use for high resolution illustration or photograph
 
 - **WebP** format will generally provide better compression than older formats
 - If WebP is not supported, fall back to **JPEG**
-- in terms of older image formats
-  - if you need animation, use `<video>`
-  - [replace animated GIFs with video](https://web.dev/replace-gifs-with-videos/)
-  - use **WebM** format whenever the format is supported
-  - if you absolutely need to preserve fine detail with highest resolution, use **PNG**
-    - has higher filesize
-    - if with geometric shapes, use svg
-    - if need text, use web font
+- if you need animation, use `<video>`
+- [replace animated GIFs with video](https://web.dev/replace-gifs-with-videos/)
+- use **WebM** format whenever the format is supported
+- if you absolutely need to preserve fine detail with highest resolution, use **PNG**
+  - has higher filesize
+  - if with geometric shapes, use svg
+  - if need text, use web font
 
 ## Some Other Insights
 
@@ -184,10 +197,9 @@ use for high resolution illustration or photograph
 
 - in general use SVG
 - if raster images are to be used
-  - use optimized PNG
+  - use optimized JPEG
   - use TIFF or other raw formats if print output requires it
-  - avoid JPEG
-    - exceptions use JPEG for charts
+  - avoid PNG because of its inherit large file size
   - when doing compound documents consider PDF, HTML or Markdown or Officus suits or Bi platforms
 
 ## Links

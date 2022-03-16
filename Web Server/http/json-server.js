@@ -17,7 +17,6 @@ form.addEventListener("submit", (e) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: formId.value,
           title: formTitle.value,
           author: formAuthor.value,
         }),
