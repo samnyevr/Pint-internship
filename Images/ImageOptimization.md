@@ -126,7 +126,7 @@ use for high resolution illustration or photograph
 >Less data, less often, when needed from nearby
 
 - Using `<picture>` tag
-	- fall through for unsupported typeds
+	- fall through for unsupported types
 	- serving a different asset from a set URI depending on the language
 
 ```
@@ -160,6 +160,15 @@ use for high resolution illustration or photograph
 	- if with geometric shapes, use svg
 	- if need text, use web font
 - if you optimize a photo, screenshot, or image asset, **use JPEG**
+
+## Some Other Insights
+### Critical Rendering Path
+
+### Preload
+- use `rel=` attribute in `<link>` tag to turn it into a preloader
+- use the `as` attribute, can help the browser to prioritize resources
+- can use media for image preload under different query sizes
+
 
 ## Conclusion
 - in general use SVG

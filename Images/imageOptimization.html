@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Optimization</title>
+    <style>
+      #screenSize {
+        position: fixed;
+        background-color: white;
+        right: 0;
+        top: 0;
+      }
+      figcaption {
+        margin-bottom: 20px;
+      }
+
+      #knight-walk {
+        background-image: url("./knight-walk-sprite.png");
+        width: 50px;
+        height: 100px;
+        animation: knight-walk 0.75s steps(1) infinite;
+      }
+
+      @keyframes knight-walk {
+        0% {
+          background-position: -16px -222px;
+        }
+
+        35% {
+          background-position: -56px -222px;
+        }
+
+        70% {
+          background-position: -106px -222px;
+        }
+
+        100% {
+          background-position: -16px -222px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>the &lt;picture&gt; and &lt;source&gt; Elements</h1>
+      <span id="screenSize"></span>
+    </header>
+    <main>
+      <figure>
+        <figcaption>
+          Most Basic picture tag, with height and width set up
+        </figcaption>
+        <picture>
+          <img
+            src="sample-image.jpeg"
+            alt="Snowy mountain with a bring sun"
+            height="333"
+            width="500"
+          />
+        </picture>
+      </figure>
+      <figure>
+        <figcaption>selecting an image based on a media query</figcaption>
+        <picture>
+          <img
+            src=""
+            alt=""
+          /><!-- Select the small picture if the screen is less than 900px wide -->
+          <source srcset="sample-image_small.jpeg" media="(max-width: 900px)" />
+          <!-- Select the large picture if the screen is more than 1300px wide -->
+          <source
+            srcset="sample-image_large.jpeg"
+            media="(min-width: 1300px)"
+          />
+          <!-- Otherwise, use this fallback <img> picture -->
+          <img src="sample-image.jpeg" alt="Snowy mountains and a bright sun" />
+        </picture>
+      </figure>
+      <figure>
+        <figcaption>
+          this can also be achieved by using srcset and sizes from img
+        </figcaption>
+        <img
+          srcset="sample-image_small.jpeg 400w, sample-image_large.jpeg 1200w"
+          sizes="(max-width: 900px) 400px, (min-width:1300px) 1200px, 800px"
+          src="sample-image.jpeg"
+          alt="Snowy mountains and a bright sun"
+        />
+      </figure>
+      <figure>
+        <figcaption>
+          this shows which browser support which media format
+        </figcaption>
+        <picture>
+          <source srcset="sample-image_avif.avif" type="image/avif" />
+          <source srcset="sample-image_webp.webp" type="image/webp" />
+          <img
+            src="sample-image_jpg.jpeg"
+            alt="Snowy mountains and a bright sun"
+          />
+        </picture>
+      </figure>
+      <figure>
+        <figcaption>and this is how sprite works</figcaption>
+        <div id="knight-walk"></div>
+      </figure>
+    </main>
+    <script src="imageOptimization.js"></script>
+  </body>
+</html>
