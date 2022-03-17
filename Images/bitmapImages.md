@@ -1,6 +1,16 @@
 # Bitmap/Raster Images
 
-Bitmap fundamentally store the color of each pixel, however,
+Bitmap is an array of bits that store the color of each pixel in a rectangular array of pixels. Bitmap file usually contain one or more information blocks that store information such as the number of bits per pixel, number of pixels in each row, and number of rows in the array. Sometimes it contains a color table called color palette.
+A bitmap that stores indexes into a color table is called a palette indexed bitmap. Some bitmaps can store the colors themselves rather than indexes into a color table
+
+| Bits per pixel | Number of colors that can be assigned to a pixel |
+| -------------- | ------------------------------------------------ |
+| 1              | 2^1 = 2                                          |
+| 2              | 2 ^ 2 = 4                                        |
+| 4              | 2^4 = 16                                         |
+| 8              | 2^8 = 256                                        |
+| 16             | 2^16 = 65,536                                    |
+| 24             | 2^24 = 16,777,216                                |
 
 1. storing color value itself,
    - RGB component
@@ -26,14 +36,12 @@ Due to the large amount of byte a bitmap takes up, compression is the key for a 
 
 ## Transparency
 
-- has three layers
-  1. First flavor - None
-     - the bitmap is a rectangle and will obscure every pixel below it
-  2. Second flavor - a designated color value means transparent
-     - other color are drawn and the magenta pixels are not drawn so the underlying pixel is displayed
-     - requires rendering the image on a selected background color
-     - edge pixel are partially the backgorund color
-  3. Third flavor - 8 bits of transparency
+- has three types
+  1. First type - None
+  - the bitmap is a rectangle and will obscure every pixel below it
+  2. Second type - binary
+  - either completely transparent or completely opaque
+  3. Third type - Many bits of transparency (commonly 8)
      - i.e. 256 values from 0-100% for each pixel
      - provide an image that has finer graduations than the human eye can discern
 
@@ -78,12 +86,20 @@ Due to the large amount of byte a bitmap takes up, compression is the key for a 
   - smallest file size
   - good for simple image and animation
   - place multiple GIF bitmaps in a single file which is how animated image is formed
-- APNG
-  - lossless
-  - provide animationsequences
+
+| Format | Transparency | Animation | Lossless/Lossy   | Progressive Rendering | Compression | Supported by all major Browser |
+| ------ | ------------ | --------- | ---------------- | --------------------- | ----------- | ------------------------------ |
+| avif   | Yes          | Yes       | Lossless         | No                    | excellent   | No                             |
+| webP   | Yes          | Yes       | Lossy & Lossless | No                    | excellent   | No                             |
+| jpeg   | No           | No        | Lossy            | Yes                   | good        | Yes                            |
+| png    | Yes          | No        | Lossless         | interlaced            | ok          | Yes                            |
+| gif    | Yes          | Yes       | Lossless         | interlaced            | ok          | Yes                            |
 
 ### format that are left on the web
 
+- APNG
+  - lossless
+  - provide animationsequences
 - ICO
   - icon file used to represent applications on the desktop
 - BMP
