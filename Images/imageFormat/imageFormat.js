@@ -22,16 +22,18 @@ const ELEM = {
   obj: null,
 };
 
-function bindQueries() {}
-
+// binding different event listeners
 function bindEventListeners() {
+  // fetching from ImageFormat.json
   fetch("./ImageFormat.json")
     .then((data) => data.json())
     .then((obj) => (ELEM.obj = obj));
 
+  // adding eventlistener to the drop down menu
   ELEM.select.addEventListener("change", (event) => {
     if (event.target.value in ELEM.obj) {
       ELEM.obj[event.target.value].forEach((key) => {
+        // decision to display image format
         if (key.display) {
           switch (key.format) {
             case "jpg":
@@ -74,6 +76,7 @@ function bindEventListeners() {
               break;
           }
         } else {
+          // hiding the element
           switch (key.format) {
             case "jpg":
               ELEM.list_jpg.setAttribute("hidden", "");
@@ -102,8 +105,8 @@ function bindEventListeners() {
   });
 }
 
+// initialization on event binding
 function init() {
-  bindQueries();
   bindEventListeners();
 }
 

@@ -113,15 +113,15 @@
       "fileSize": "321KB",
       "src": "./resource/transparent/transparent.png",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "2",
+      "rank" : "3",
       "display": true
     },
     {
       "format": "webp",
-      "fileSize": "324KB",
+      "fileSize": "125KB",
       "src": "./resource/transparent/transparent.webp",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "3",
+      "rank" : "1",
       "display": true
     },
     {
@@ -129,7 +129,7 @@
       "fileSize": "162KB",
       "src": "./resource/transparent/transparent.avif",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "1",
+      "rank" : "2",
       "display": true
     },
     {
@@ -202,42 +202,42 @@
   "animated": [
     {
       "format": "jpg",
-      "fileSize": "81KB",
-      "src": "./resource/mountain/mountain.jpg",
-      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "2",
-      "display": true
+      "fileSize": "",
+      "src": "",
+      "alt": "",
+      "rank" : "",
+      "display": false
     },
     {
       "format": "png",
-      "fileSize": "476KB",
-      "src": "./resource/mountain/mountain.png",
-      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "2",
-      "display": true
+      "fileSize": "",
+      "src": "",
+      "alt": "",
+      "rank" : "",
+      "display": false
     },
     {
       "format": "webp",
-      "fileSize": "52KB",
-      "src": "./resource/mountain/mountain.webp",
-      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "2",
+      "fileSize": "4KB",
+      "src": "./resource/animated/animated.webp",
+      "alt": "two peanut butter with the word gif and jif rasing a butter knife",
+      "rank" : "1",
       "display": true
     },
     {
       "format": "avif",
-      "fileSize": "47KB",
-      "src": "./resource/mountain/mountain.avif",
-      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "fileSize": "5KB",
+      "src": "./resource/animated/animated.avif",
+      "alt": "two peanut butter with the word gif and jif rasing a butter knife",
       "rank" : "2",
       "display": true
     },
     {
       "format": "gif",
-      "fileSize": "220KB",
-      "src": "./resource/mountain/mountain.gif",
-      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "2",
+      "fileSize": "25KB",
+      "src": "./resource/animated/animated.gif",
+      "alt": "two peanut butter with the word gif and jif rasing a butter knife",
+      "rank" : "3",
       "display": true
     },
     {
@@ -245,7 +245,7 @@
       "fileSize": "",
       "src": "",
       "alt": "",
-      "rank" : "2",
+      "rank" : "",
       "display": false
     }
   ]
