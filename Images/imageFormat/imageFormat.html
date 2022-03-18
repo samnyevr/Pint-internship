@@ -15,7 +15,7 @@
       <section id="code"></section>
       <section id="content">
         <label for="image_options">
-          Choose an Image Format
+          Choose an Image Type
           <select name="image_options" id="image_options">
             <option value="glitter">glitter</option>
             <option value="mountain">mountain</option>
@@ -30,14 +30,26 @@
               <header>
                 <h2>jpg</h2>
                 <p>259KB</p>
-                <span>3</span>
               </header>
               <picture>
+                <source
+                  srcset="./resource/glitter/glitter.jpg"
+                  type="image/jpg"
+                />
                 <img
-                  src="./resource/glitter/glitter.jpg"
-                  alt=""
+                  src="./resource/no-support/no-browser-support.png"
+                  alt="no browser support"
                   width="250px"
                   height="400px"
+                />
+              </picture>
+              <picture>
+                <img
+                  id="jpg_rank"
+                  src="./resource/medals/number3.svg"
+                  alt="medal"
+                  width="100px"
+                  height="100px"
                 />
               </picture>
             </li>
@@ -45,14 +57,26 @@
               <header>
                 <h2>png</h2>
                 <p>1.4MB</p>
-                <span>5</span>
               </header>
               <picture>
+                <source
+                  srcset="./resource/glitter/glitter.png"
+                  type="image/jpg"
+                />
                 <img
-                  src="./resource/glitter/glitter.png"
-                  alt=""
+                  src="./resource/no-support/no-browser-support.png"
+                  alt="no browser support"
                   width="250px"
                   height="400px"
+                />
+              </picture>
+              <picture>
+                <img
+                  id="png_rank"
+                  src="./resource/medals/number5.svg"
+                  alt="medal"
+                  width="100px"
+                  height="100px"
                 />
               </picture>
             </li>
@@ -60,14 +84,26 @@
               <header>
                 <h2>webp</h2>
                 <p>194KB</p>
-                <span>2</span>
               </header>
               <picture>
+                <source
+                  srcset="./resource/glitter/glitter.webp"
+                  type="image/jpg"
+                />
                 <img
-                  src="./resource/glitter/glitter.webp"
-                  alt=""
+                  src="./resource/no-support/no-browser-support.png"
+                  alt="no browser support"
                   width="250px"
                   height="400px"
+                />
+              </picture>
+              <picture>
+                <img
+                  id="webp_rank"
+                  src="./resource/medals/number2.svg"
+                  alt="medal"
+                  width="100px"
+                  height="100px"
                 />
               </picture>
             </li>
@@ -75,14 +111,26 @@
               <header>
                 <h2>avif</h2>
                 <p>174KB</p>
-                <span>1</span>
               </header>
               <picture>
+                <source
+                  srcset="./resource/glitter/glitter.avif"
+                  type="image/jpg"
+                />
                 <img
-                  src="./resource/glitter/glitter.avif"
-                  alt=""
+                  src="./resource/no-support/no-browser-support.png"
+                  alt="no browser support"
                   width="250px"
                   height="400px"
+                />
+              </picture>
+              <picture>
+                <img
+                  id="avif_rank"
+                  src="./resource/medals/number1.svg"
+                  alt="medal"
+                  width="100px"
+                  height="100px"
                 />
               </picture>
             </li>
@@ -90,29 +138,53 @@
               <header>
                 <h2>gif</h2>
                 <p>659KB</p>
-                <span>4</span>
               </header>
               <picture>
+                <source
+                  srcset="./resource/glitter/glitter.gif"
+                  type="image/jpg"
+                />
                 <img
-                  src="./resource/glitter/glitter.gif"
-                  alt=""
+                  src="./resource/no-support/no-browser-support.png"
+                  alt="no browser support"
                   width="250px"
                   height="400px"
                 />
               </picture>
+              <picture>
+                <img
+                  id="gif_rank"
+                  src="./resource/medals/number4.svg"
+                  alt="medal"
+                  width="100px"
+                  height="100px"
+                />
+              </picture>
             </li>
-            <li id="svg" hidden>
+            <li id="svg">
               <header>
                 <h2>svg</h2>
                 <p>N/A</p>
-                <span>6</span>
               </header>
               <picture>
+                <source
+                  srcset="./resource/no-support/no-feature-support.png"
+                  type="image/jpg"
+                />
                 <img
-                  src="./resource/glitter/glitter.svg"
-                  alt=""
+                  src="./resource/no-support/no-browser-support.png"
+                  alt="no browser support"
                   width="250px"
                   height="400px"
+                />
+              </picture>
+              <picture>
+                <img
+                  id="svg_rank"
+                  src="./resource/medals/number6.svg"
+                  alt="medal"
+                  width="100px"
+                  height="100px"
                 />
               </picture>
             </li>

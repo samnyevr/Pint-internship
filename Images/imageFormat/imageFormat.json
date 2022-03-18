@@ -5,48 +5,42 @@
       "fileSize": "259kB",
       "src": "./resource/glitter/glitter.jpg",
       "alt": "glitter effects of many little dots",
-      "rank" : "3",
-      "display": true
+      "rank" : "3"
     },
     {
       "format": "png",
       "fileSize": "1.4MB",
       "src": "./resource/glitter/glitter.jpg",
       "alt": "glitter effects of many little dots",
-      "rank" : "5",
-      "display": true
+      "rank" : "5"
     },
     {
       "format": "webp",
       "fileSize": "194KB",
       "src": "./resource/glitter/glitter.jpg",
       "alt": "glitter effects of many little dots",
-      "rank" : "2",
-      "display": true
+      "rank" : "2"
     },
     {
       "format": "avif",
       "fileSize": "174KB",
       "src": "./resource/glitter/glitter.jpg",
       "alt": "glitter effects of many little dots",
-      "rank" : "1",
-      "display": true
+      "rank" : "1"
     },
     {
       "format": "gif",
       "fileSize": "659KB",
       "src": "./resource/glitter/glitter.jpg",
       "alt": "glitter effects of many little dots",
-      "rank" : "4",
-      "display": true
+      "rank" : "4"
     },
     {
       "format": "svg",
-      "fileSize": "",
-      "src": "",
-      "alt": "",
-      "rank" : "6",
-      "display": false
+      "fileSize": "N/A",
+      "src": "./resource/no-support/no-feature-support.png",
+      "alt": "this image type does not support this feature",
+      "rank" : "6"
     }
   ],
   "mountain": [
@@ -55,98 +49,86 @@
       "fileSize": "81KB",
       "src": "./resource/mountain/mountain.jpg",
       "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "3",
-      "display": true
+      "rank" : "3"
     },
     {
       "format": "png",
       "fileSize": "476KB",
       "src": "./resource/mountain/mountain.png",
       "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "5",
-      "display": true
+      "rank" : "5"
     },
     {
       "format": "webp",
       "fileSize": "52KB",
       "src": "./resource/mountain/mountain.webp",
       "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "2",
-      "display": true
+      "rank" : "2"
     },
     {
       "format": "avif",
       "fileSize": "47KB",
       "src": "./resource/mountain/mountain.avif",
       "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "1",
-      "display": true
+      "rank" : "1"
     },
     {
       "format": "gif",
       "fileSize": "220KB",
       "src": "./resource/mountain/mountain.gif",
       "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
-      "rank" : "4",
-      "display": true
+      "rank" : "4"
     },
     {
       "format": "svg",
-      "fileSize": "",
-      "src": "",
-      "alt": "",
-      "rank" : "6",
-      "display": false
+      "fileSize": "N/A",
+      "src": "./resource/no-support/no-feature-support.png",
+      "alt": "this image type does not support this feature",
+      "rank" : "6"
     }
   ],
   "transparent": [
     {
       "format": "jpg",
-      "fileSize": "252KB",
-      "src": "./resource/transparent/transparent.jpg",
-      "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "-",
-      "display": true
+      "fileSize": "N/A",
+      "src": "./resource/no-support/no-feature-support.png",
+      "alt": "this image type does not support this feature",
+      "rank" : "6"
     },
     {
       "format": "png",
       "fileSize": "321KB",
       "src": "./resource/transparent/transparent.png",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "3",
-      "display": true
+      "rank" : "3"
     },
     {
       "format": "webp",
       "fileSize": "125KB",
       "src": "./resource/transparent/transparent.webp",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "1",
-      "display": true
+      "rank" : "1"
     },
     {
       "format": "avif",
       "fileSize": "162KB",
       "src": "./resource/transparent/transparent.avif",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "2",
-      "display": true
+      "rank" : "2"
     },
     {
       "format": "gif",
       "fileSize": "344KB",
       "src": "./resource/transparent/transparent.gif",
       "alt": "a puppy with big head staring straight up at the camera",
-      "rank" : "4",
-      "display": true
+      "rank" : "4"
     },
     {
       "format": "svg",
-      "fileSize": "",
-      "src": "",
-      "alt": "",
-      "rank" : "5",
-      "display": false
+      "fileSize": "2.7MB",
+      "src": "./resource/transparent/transparent.svg",
+      "alt": "a puppy with big head staring straight up at the camera",
+      "rank" : "5"
     }
   ],
   "logo": [
@@ -155,98 +137,113 @@
       "fileSize": "601KB",
       "src": "./resource/logo/iwt-logo.jpeg",
       "alt": "iwt logo",
-      "rank" : "6",
-      "display": true
+      "rank" : "6"
     },
     {
       "format": "png",
       "fileSize": "47KB",
       "src": "./resource/logo/iwt-logo.png",
       "alt": "iwt logo",
-      "rank" : "2",
-      "display": true
+      "rank" : "2"
     },
     {
       "format": "webp",
       "fileSize": "61KB",
       "src": "./resource/logo/iwt-logo.webp",
       "alt": "iwt logo",
-      "rank" : "3",
-      "display": true
+      "rank" : "3"
     },
     {
       "format": "avif",
       "fileSize": "66KB",
       "src": "./resource/logo/iwt-logo.avif",
       "alt": "iwt logo",
-      "rank" : "4",
-      "display": true
+      "rank" : "4"
     },
     {
       "format": "gif",
       "fileSize": "86KB",
       "src": "./resource/logo/iwt-logo.gif",
       "alt": "iwt logo",
-      "rank" : "5",
-      "display": true
+      "rank" : "5"
     },
     {
       "format": "svg",
       "fileSize": "2KB",
       "src": "./resource/logo/iwt-logo.svg",
       "alt": "iwt logo",
-      "rank" : "1",
-      "display": true
+      "rank" : "1"
     }
   ],
   "animated": [
     {
       "format": "jpg",
-      "fileSize": "",
-      "src": "",
-      "alt": "",
-      "rank" : "",
-      "display": false
+      "fileSize": "N/A",
+      "src": "./resource/no-support/no-feature-support.png",
+      "alt": "this image type does not support this feature",
+      "rank" : "4"
     },
     {
       "format": "png",
-      "fileSize": "",
-      "src": "",
-      "alt": "",
-      "rank" : "",
-      "display": false
+      "fileSize": "7KB",
+      "src": "./resource/animated/animated.png",
+      "alt": "this image type does not support this feature",
+      "rank" : "4"
     },
     {
       "format": "webp",
       "fileSize": "4KB",
       "src": "./resource/animated/animated.webp",
       "alt": "two peanut butter with the word gif and jif rasing a butter knife",
-      "rank" : "1",
-      "display": true
+      "rank" : "1"
     },
     {
       "format": "avif",
       "fileSize": "5KB",
       "src": "./resource/animated/animated.avif",
       "alt": "two peanut butter with the word gif and jif rasing a butter knife",
-      "rank" : "2",
-      "display": true
+      "rank" : "2"
     },
     {
       "format": "gif",
       "fileSize": "25KB",
       "src": "./resource/animated/animated.gif",
       "alt": "two peanut butter with the word gif and jif rasing a butter knife",
-      "rank" : "3",
-      "display": true
+      "rank" : "3"
     },
     {
       "format": "svg",
-      "fileSize": "",
-      "src": "",
-      "alt": "",
-      "rank" : "",
-      "display": false
+      "fileSize": "11KB",
+      "src": "./resource/animated/animated.svg",
+      "alt": "this image type does not support this feature",
+      "rank" : "5"
     }
+  ],
+  "medals": [
+    {
+      "src": "./resource/medals/number1.svg",
+      "alt": "medal 1 indicating a number 1 in file size efficency"
+    },
+    {
+      "src": "./resource/medals/number2.svg",
+      "alt": "medal 2 indicating a number 2 in file size efficency"
+    },
+    {
+      "src": "./resource/medals/number3.svg",
+      "alt": "medal 3 indicating a number 3 in file size efficency"
+    },
+    {
+      "src": "./resource/medals/number4.svg",
+      "alt": "number 4 indicating a number 4 in file size efficency"
+    },
+    {
+      "src": "./resource/medals/number5.svg",
+      "alt": "number 5 indicating a number 5 in file size efficency"
+    },
+    {
+      "src": "./resource/medals/number6.svg",
+      "alt": "number 6 indicating a number 6 in file size efficency"
+    }
+    
   ]
 }

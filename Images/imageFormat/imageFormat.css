@@ -18,10 +18,6 @@ main > section {
   max-height: fit-content;
 }
 
-#content {
-  background-color: aqua;
-}
-
 img {
   object-fit: contain;
 }
@@ -33,24 +29,33 @@ ul {
 
 ul li {
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header {
-  display: grid;
-  grid-template-areas: "a b" "c b";
+li > header {
+  width: 100%;
+  cursor: default;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-h2 {
-  grid-area: a;
+label[for="image_options"] {
+  width: 100%;
+  padding-top: 20px;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
 }
 
-h2 + p {
-  grid-area: c;
+label > select {
+  margin-left: 20px;
+  padding: 6px 6px 6px 20px;
+  border-radius: 10px;
 }
 
-header > span {
-  grid-area: b;
-  text-align: center;
-  align-self: center;
-  font-size: 42px;
+#content {
+  background-color: rgb(211, 244, 255);
 }
