@@ -1,0 +1,56 @@
+* {
+  box-sizing: content-box;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-basis: 500px;
+  max-height: fit-content;
+}
+
+main > section {
+  border: solid 1px black;
+  width: 100%;
+  max-height: fit-content;
+}
+
+#content {
+  background-color: aqua;
+}
+
+img {
+  object-fit: contain;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+ul li {
+  margin: 20px;
+}
+
+header {
+  display: grid;
+  grid-template-areas: "a b" "c b";
+}
+
+h2 {
+  grid-area: a;
+}
+
+h2 + p {
+  grid-area: c;
+}
+
+header > span {
+  grid-area: b;
+  text-align: center;
+  align-self: center;
+  font-size: 42px;
+}

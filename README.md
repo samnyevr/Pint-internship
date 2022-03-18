@@ -10,15 +10,15 @@ Some topics to be covered in this **ever growing** and _ever living_ documentati
 
 - [x] HTML specs
 - [x] Markdown
-- [ ] Web Server
-  - HTTP Request
-  - CRUD functionality
-  - URLs
-  - Json Server
+- [x] Web Server
+  - [x] HTTP Request
+  - [x] CRUD functionality
+  - [x] URLs
+  - [x] Json Server
 - [x] Git
-- [ ] Image Optimization
-- [ ] Image Format
-- [ ]
+- [x] Image
+  - [ ] Image Optimization
+  - [ ] Image Format
 
 Taking a break from this topic and adding a horizontal rule
 

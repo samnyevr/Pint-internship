@@ -1,0 +1,252 @@
+{
+  "glitter": [
+    {
+      "format": "jpg",
+      "fileSize": "259kB",
+      "src": "./resource/glitter/glitter.jpg",
+      "alt": "glitter effects of many little dots",
+      "rank" : "3",
+      "display": true
+    },
+    {
+      "format": "png",
+      "fileSize": "1.4MB",
+      "src": "./resource/glitter/glitter.jpg",
+      "alt": "glitter effects of many little dots",
+      "rank" : "5",
+      "display": true
+    },
+    {
+      "format": "webp",
+      "fileSize": "194KB",
+      "src": "./resource/glitter/glitter.jpg",
+      "alt": "glitter effects of many little dots",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "avif",
+      "fileSize": "174KB",
+      "src": "./resource/glitter/glitter.jpg",
+      "alt": "glitter effects of many little dots",
+      "rank" : "1",
+      "display": true
+    },
+    {
+      "format": "gif",
+      "fileSize": "659KB",
+      "src": "./resource/glitter/glitter.jpg",
+      "alt": "glitter effects of many little dots",
+      "rank" : "4",
+      "display": true
+    },
+    {
+      "format": "svg",
+      "fileSize": "",
+      "src": "",
+      "alt": "",
+      "rank" : "6",
+      "display": false
+    }
+  ],
+  "mountain": [
+    {
+      "format": "jpg",
+      "fileSize": "81KB",
+      "src": "./resource/mountain/mountain.jpg",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "3",
+      "display": true
+    },
+    {
+      "format": "png",
+      "fileSize": "476KB",
+      "src": "./resource/mountain/mountain.png",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "5",
+      "display": true
+    },
+    {
+      "format": "webp",
+      "fileSize": "52KB",
+      "src": "./resource/mountain/mountain.webp",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "avif",
+      "fileSize": "47KB",
+      "src": "./resource/mountain/mountain.avif",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "1",
+      "display": true
+    },
+    {
+      "format": "gif",
+      "fileSize": "220KB",
+      "src": "./resource/mountain/mountain.gif",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "4",
+      "display": true
+    },
+    {
+      "format": "svg",
+      "fileSize": "",
+      "src": "",
+      "alt": "",
+      "rank" : "6",
+      "display": false
+    }
+  ],
+  "transparent": [
+    {
+      "format": "jpg",
+      "fileSize": "252KB",
+      "src": "./resource/transparent/transparent.jpg",
+      "alt": "a puppy with big head staring straight up at the camera",
+      "rank" : "-",
+      "display": true
+    },
+    {
+      "format": "png",
+      "fileSize": "321KB",
+      "src": "./resource/transparent/transparent.png",
+      "alt": "a puppy with big head staring straight up at the camera",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "webp",
+      "fileSize": "324KB",
+      "src": "./resource/transparent/transparent.webp",
+      "alt": "a puppy with big head staring straight up at the camera",
+      "rank" : "3",
+      "display": true
+    },
+    {
+      "format": "avif",
+      "fileSize": "162KB",
+      "src": "./resource/transparent/transparent.avif",
+      "alt": "a puppy with big head staring straight up at the camera",
+      "rank" : "1",
+      "display": true
+    },
+    {
+      "format": "gif",
+      "fileSize": "344KB",
+      "src": "./resource/transparent/transparent.gif",
+      "alt": "a puppy with big head staring straight up at the camera",
+      "rank" : "4",
+      "display": true
+    },
+    {
+      "format": "svg",
+      "fileSize": "",
+      "src": "",
+      "alt": "",
+      "rank" : "5",
+      "display": false
+    }
+  ],
+  "logo": [
+    {
+      "format": "jpg",
+      "fileSize": "601KB",
+      "src": "./resource/logo/iwt-logo.jpeg",
+      "alt": "iwt logo",
+      "rank" : "6",
+      "display": true
+    },
+    {
+      "format": "png",
+      "fileSize": "47KB",
+      "src": "./resource/logo/iwt-logo.png",
+      "alt": "iwt logo",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "webp",
+      "fileSize": "61KB",
+      "src": "./resource/logo/iwt-logo.webp",
+      "alt": "iwt logo",
+      "rank" : "3",
+      "display": true
+    },
+    {
+      "format": "avif",
+      "fileSize": "66KB",
+      "src": "./resource/logo/iwt-logo.avif",
+      "alt": "iwt logo",
+      "rank" : "4",
+      "display": true
+    },
+    {
+      "format": "gif",
+      "fileSize": "86KB",
+      "src": "./resource/logo/iwt-logo.gif",
+      "alt": "iwt logo",
+      "rank" : "5",
+      "display": true
+    },
+    {
+      "format": "svg",
+      "fileSize": "2KB",
+      "src": "./resource/logo/iwt-logo.svg",
+      "alt": "iwt logo",
+      "rank" : "1",
+      "display": true
+    }
+  ],
+  "animated": [
+    {
+      "format": "jpg",
+      "fileSize": "81KB",
+      "src": "./resource/mountain/mountain.jpg",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "png",
+      "fileSize": "476KB",
+      "src": "./resource/mountain/mountain.png",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "webp",
+      "fileSize": "52KB",
+      "src": "./resource/mountain/mountain.webp",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "avif",
+      "fileSize": "47KB",
+      "src": "./resource/mountain/mountain.avif",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "gif",
+      "fileSize": "220KB",
+      "src": "./resource/mountain/mountain.gif",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
+      "rank" : "2",
+      "display": true
+    },
+    {
+      "format": "svg",
+      "fileSize": "",
+      "src": "",
+      "alt": "",
+      "rank" : "2",
+      "display": false
+    }
+  ]
+}
