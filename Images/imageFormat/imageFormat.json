@@ -37,9 +37,9 @@
     },
     {
       "format": "svg",
-      "fileSize": "N/A",
-      "src": "./resource/no-support/no-feature-support.png",
-      "alt": "this image type does not support this feature",
+      "fileSize": "1.8MB",
+      "src": "./resource/glitter/glitter.svg",
+      "alt": "glitter effects of many little dots",
       "rank" : "6"
     }
   ],
@@ -81,9 +81,9 @@
     },
     {
       "format": "svg",
-      "fileSize": "N/A",
-      "src": "./resource/no-support/no-feature-support.png",
-      "alt": "this image type does not support this feature",
+      "fileSize": "633KB",
+      "src": "./resource/mountain/mountain.svg",
+      "alt": "a winter mountain with a lake in front, and the moutain has perfect reflection",
       "rank" : "6"
     }
   ],
@@ -181,7 +181,7 @@
       "fileSize": "N/A",
       "src": "./resource/no-support/no-feature-support.png",
       "alt": "this image type does not support this feature",
-      "rank" : "4"
+      "rank" : "6"
     },
     {
       "format": "png",
@@ -213,9 +213,9 @@
     },
     {
       "format": "svg",
-      "fileSize": "11KB",
+      "fileSize": "22KB",
       "src": "./resource/animated/animated.svg",
-      "alt": "this image type does not support this feature",
+      "alt": "two peanut butter with the word gif and jif rasing a butter knife",
       "rank" : "5"
     }
   ],

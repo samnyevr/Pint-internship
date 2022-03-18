@@ -1,51 +1,72 @@
 // Global Variable
-const ELEM = {
-  select: document.querySelector("#image_options"),
-  list_jpg: document.querySelector("#jpg"),
-  list_png: document.querySelector("#png"),
-  list_webp: document.querySelector("#webp"),
-  list_avif: document.querySelector("#avif"),
-  list_gif: document.querySelector("#gif"),
-  list_svg: document.querySelector("#svg"),
-  list_image_jpg: document.querySelector("#jpg source"),
-  list_image_png: document.querySelector("#png source"),
-  list_image_webp: document.querySelector("#webp source"),
-  list_image_avif: document.querySelector("#avif source"),
-  list_image_gif: document.querySelector("#gif source"),
-  list_image_svg: document.querySelector("#svg source"),
-  list_header_jpg: document.querySelector("#jpg header"),
-  list_header_png: document.querySelector("#png header"),
-  list_header_webp: document.querySelector("#webp header"),
-  list_header_avif: document.querySelector("#avif header"),
-  list_header_gif: document.querySelector("#gif header"),
-  list_header_svg: document.querySelector("#svg header"),
-  list_rank_jpg: document.querySelector("#jpg_rank"),
-  list_rank_png: document.querySelector("#png_rank"),
-  list_rank_webp: document.querySelector("#webp_rank"),
-  list_rank_avif: document.querySelector("#avif_rank"),
-  list_rank_gif: document.querySelector("#gif_rank"),
-  list_rank_svg: document.querySelector("#svg_rank"),
+const ELEMS = {
+  select: null,
+  list_fileTypes: null,
+  list_fileSize: null,
+  list_sources: null,
+  list_rank: null,
   obj: null,
 };
+
+//bind different queries
+function bindQueries() {
+  ELEMS.select = document.querySelector("select");
+
+  let formatList = ["jpg", "png", "webp", "avif", "gif", "svg"];
+
+  ELEMS.list_fileTypes = Array.from(
+    document.querySelectorAll('figure[id|="fig"] .file-type')
+  )
+    // reducer function to set the array into an object with each file type corresponding to its tag
+    .reduce((prev, cur, index) => {
+      return { ...prev, [formatList[index]]: cur };
+    }, {});
+
+  ELEMS.list_fileSize = Array.from(
+    document.querySelectorAll('figure[id|="fig"] .file-size')
+  ).reduce((prev, cur, index) => {
+    return { ...prev, [formatList[index]]: cur };
+  }, {});
+  ELEMS.list_sources = Array.from(
+    document.querySelectorAll('figure[id|="fig"] .img-source')
+  ).reduce((prev, cur, index) => {
+    return { ...prev, [formatList[index]]: cur };
+  }, {});
+  ELEMS.list_rank = Array.from(
+    document.querySelectorAll('figure[id|="fig"] .img-rank')
+  ).reduce((prev, cur, index) => {
+    return { ...prev, [formatList[index]]: cur };
+  }, {});
+}
 
 // helper function for grabing the actual file from the json file
 function rank_cal(rank) {
   switch (rank) {
     case "1":
-      return ELEM.obj["medals"][0];
+      return ELEMS.obj["medals"][0];
     case "2":
-      return ELEM.obj["medals"][1];
+      return ELEMS.obj["medals"][1];
     case "3":
-      return ELEM.obj["medals"][2];
+      return ELEMS.obj["medals"][2];
     case "4":
-      return ELEM.obj["medals"][3];
+      return ELEMS.obj["medals"][3];
     case "5":
-      return ELEM.obj["medals"][4];
+      return ELEMS.obj["medals"][4];
     case "6":
-      return ELEM.obj["medals"][5];
+      return ELEMS.obj["medals"][5];
     default:
       break;
   }
+}
+
+//helper function for setting the different card items their appropriate new contents
+function switchContent({ src, alt, fileSize, rank }, format) {
+  ELEMS.list_fileTypes[format].innerHTML = format;
+  ELEMS.list_fileTypes[format].innerHTML = fileSize;
+  ELEMS.list_sources[format].setAttribute("srcset", src);
+  ELEMS.list_sources[format].setAttribute("alt", alt);
+  ELEMS.list_rank[format].setAttribute("src", `${rank_cal(rank).src}`);
+  ELEMS.list_rank[format].setAttribute("alt", `${rank_cal(rank).alt}`);
 }
 
 // binding different event listeners
@@ -53,67 +74,30 @@ function bindEventListeners() {
   // fetching from ImageFormat.json
   fetch("./ImageFormat.json")
     .then((data) => data.json())
-    .then((obj) => (ELEM.obj = obj));
+    .then((obj) => (ELEMS.obj = obj));
 
   // adding eventlistener to the drop down menu
-  ELEM.select.addEventListener("change", (event) => {
-    if (event.target.value in ELEM.obj) {
-      ELEM.obj[event.target.value].forEach((key) => {
+  ELEMS.select.addEventListener("change", (event) => {
+    if (event.target.value in ELEMS.obj) {
+      ELEMS.obj[event.target.value].forEach((key) => {
         switch (key.format) {
           case "jpg":
-            ELEM.list_image_jpg.setAttribute("srcset", key.src);
-            ELEM.list_image_jpg.setAttribute("alt", key.alt);
-            ELEM.list_header_jpg.innerHTML = `<h2>${key.format}</h2><p>${key.fileSize}</p>`;
-            ELEM.list_rank_jpg.setAttribute("src", `${rank_cal(key.rank).src}`);
-            ELEM.list_rank_jpg.setAttribute("alt", `${rank_cal(key.rank).alt}`);
+            switchContent(key, "jpg");
             break;
           case "png":
-            ELEM.list_image_png.setAttribute("srcset", key.src);
-            ELEM.list_image_png.setAttribute("alt", key.alt);
-            ELEM.list_header_png.innerHTML = `<h2>${key.format}</h2><p>${key.fileSize}</p>`;
-            console.log(rank_cal(key.rank).src);
-            ELEM.list_rank_png.setAttribute("src", `${rank_cal(key.rank).src}`);
-            ELEM.list_rank_png.setAttribute("alt", `${rank_cal(key.rank).alt}`);
+            switchContent(key, "png");
             break;
           case "webp":
-            ELEM.list_image_webp.setAttribute("srcset", key.src);
-            ELEM.list_image_webp.setAttribute("alt", key.alt);
-            ELEM.list_header_webp.innerHTML = `<h2>${key.format}</h2><p>${key.fileSize}</p>`;
-            ELEM.list_rank_webp.setAttribute(
-              "src",
-              `${rank_cal(key.rank).src}`
-            );
-            ELEM.list_rank_webp.setAttribute(
-              "alt",
-              `${rank_cal(key.rank).alt}`
-            );
+            switchContent(key, "webp");
             break;
           case "avif":
-            ELEM.list_image_avif.setAttribute("srcset", key.src);
-            ELEM.list_image_avif.setAttribute("alt", key.alt);
-            ELEM.list_header_avif.innerHTML = `<h2>${key.format}</h2><p>${key.fileSize}</p>`;
-            ELEM.list_rank_avif.setAttribute(
-              "src",
-              `${rank_cal(key.rank).src}`
-            );
-            ELEM.list_rank_avif.setAttribute(
-              "alt",
-              `${rank_cal(key.rank).alt}`
-            );
+            switchContent(key, "avif");
             break;
           case "gif":
-            ELEM.list_image_gif.setAttribute("srcset", key.src);
-            ELEM.list_image_gif.setAttribute("alt", key.alt);
-            ELEM.list_header_gif.innerHTML = `<h2>${key.format}</h2><p>${key.fileSize}</p>`;
-            ELEM.list_rank_gif.setAttribute("src", `${rank_cal(key.rank).src}`);
-            ELEM.list_rank_gif.setAttribute("alt", `${rank_cal(key.rank).alt}`);
+            switchContent(key, "gif");
             break;
           case "svg":
-            ELEM.list_image_svg.setAttribute("srcset", key.src);
-            ELEM.list_image_svg.setAttribute("alt", key.alt);
-            ELEM.list_header_svg.innerHTML = `<h2>${key.format}</h2><p>${key.fileSize}</p>`;
-            ELEM.list_rank_svg.setAttribute("src", `${rank_cal(key.rank).src}`);
-            ELEM.list_rank_svg.setAttribute("alt", `${rank_cal(key.rank).alt}`);
+            switchContent(key, "svg");
             break;
           default:
             break;
@@ -125,6 +109,7 @@ function bindEventListeners() {
 
 // initialization on event binding
 function init() {
+  bindQueries();
   bindEventListeners();
 }
 
