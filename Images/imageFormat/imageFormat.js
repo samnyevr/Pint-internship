@@ -1,72 +1,60 @@
 // Global Variable
 const ELEMS = {
-  select: null,
-  list_fileTypes: null,
-  list_fileSize: null,
-  list_sources: null,
-  list_rank: null,
-  obj: null,
+  select: undefined,
+  list_fileTypes: undefined,
+  list_fileSize: undefined,
+  list_sources: undefined,
+  list_rank: undefined,
+  obj: undefined,
 };
 
 //bind different queries
 function bindQueries() {
   ELEMS.select = document.querySelector("select");
 
-  let formatList = ["jpg", "png", "webp", "avif", "gif", "svg"];
-
   ELEMS.list_fileTypes = Array.from(
     document.querySelectorAll('figure[id|="fig"] .file-type')
-  )
-    // reducer function to set the array into an object with each file type corresponding to its tag
-    .reduce((prev, cur, index) => {
-      return { ...prev, [formatList[index]]: cur };
-    }, {});
+  );
+
+  // Transforming the array into something more easily parsed
+  // HTMLElement --> image format {string}: HTMLElement
+  // ELEMS.list_fileTypes = ELEMS.list_fileTypes.map((elem) => {
+  //   let formattedElem = {};
+  //   formattedElem[elem.dataset.type] = elem;
+  //   return formattedElem;
+  // });
+
+  let fileTypes = {};
+  ELEMS.list_fileTypes.forEach((elem) => {
+    fileTypes[elem.dataset.type] = elem;
+  });
+  ELEMS.list_fileTypes = fileTypes;
 
   ELEMS.list_fileSize = Array.from(
     document.querySelectorAll('figure[id|="fig"] .file-size')
-  ).reduce((prev, cur, index) => {
-    return { ...prev, [formatList[index]]: cur };
-  }, {});
+  );
   ELEMS.list_sources = Array.from(
     document.querySelectorAll('figure[id|="fig"] .img-source')
-  ).reduce((prev, cur, index) => {
-    return { ...prev, [formatList[index]]: cur };
-  }, {});
+  );
   ELEMS.list_rank = Array.from(
     document.querySelectorAll('figure[id|="fig"] .img-rank')
-  ).reduce((prev, cur, index) => {
-    return { ...prev, [formatList[index]]: cur };
-  }, {});
-}
-
-// helper function for grabing the actual file from the json file
-function rank_cal(rank) {
-  switch (rank) {
-    case "1":
-      return ELEMS.obj["medals"][0];
-    case "2":
-      return ELEMS.obj["medals"][1];
-    case "3":
-      return ELEMS.obj["medals"][2];
-    case "4":
-      return ELEMS.obj["medals"][3];
-    case "5":
-      return ELEMS.obj["medals"][4];
-    case "6":
-      return ELEMS.obj["medals"][5];
-    default:
-      break;
-  }
+  );
 }
 
 //helper function for setting the different card items their appropriate new contents
 function switchContent({ src, alt, fileSize, rank }, format) {
   ELEMS.list_fileTypes[format].innerHTML = format;
   ELEMS.list_fileTypes[format].innerHTML = fileSize;
-  ELEMS.list_sources[format].setAttribute("srcset", src);
-  ELEMS.list_sources[format].setAttribute("alt", alt);
-  ELEMS.list_rank[format].setAttribute("src", `${rank_cal(rank).src}`);
-  ELEMS.list_rank[format].setAttribute("alt", `${rank_cal(rank).alt}`);
+
+  // helper function for grabing the actual file from the json file
+  function _rankCal(rank) {
+    return ELEMS.obj["medals"][Number(rank) - 1];
+  }
+
+  // ELEMS.list_sources[format].setAttribute("srcset", src);
+  // ELEMS.list_sources[format].setAttribute("alt", alt);
+  // ELEMS.list_rank[format].setAttribute("src", `${_rankCal(rank).src}`);
+  // ELEMS.list_rank[format].setAttribute("alt", `${_rankCal(rank).alt}`);
 }
 
 // binding different event listeners
@@ -78,32 +66,12 @@ function bindEventListeners() {
 
   // adding eventlistener to the drop down menu
   ELEMS.select.addEventListener("change", (event) => {
-    if (event.target.value in ELEMS.obj) {
-      ELEMS.obj[event.target.value].forEach((key) => {
-        switch (key.format) {
-          case "jpg":
-            switchContent(key, "jpg");
-            break;
-          case "png":
-            switchContent(key, "png");
-            break;
-          case "webp":
-            switchContent(key, "webp");
-            break;
-          case "avif":
-            switchContent(key, "avif");
-            break;
-          case "gif":
-            switchContent(key, "gif");
-            break;
-          case "svg":
-            switchContent(key, "svg");
-            break;
-          default:
-            break;
-        }
-      });
-    }
+    // check to make sure that the dropdown has a value
+    if (!ELEMS.obj[event.target.value]) return;
+    // Switch the page to the dropdown value
+    ELEMS.obj[event.target.value].forEach((key) => {
+      switchContent(key, key.format);
+    });
   });
 }
 
