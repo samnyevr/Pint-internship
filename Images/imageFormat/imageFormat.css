@@ -30,7 +30,7 @@ ul {
   justify-content: center;
 }
 
-ul li {
+ul li figure {
   margin: 20px;
   display: flex;
   flex-direction: column;
@@ -41,12 +41,10 @@ ul li {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-li > header {
-  width: 100%;
-  cursor: default;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+p.file-type {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 label[for="image_options"] {
