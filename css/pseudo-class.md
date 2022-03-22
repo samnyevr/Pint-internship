@@ -1,0 +1,89 @@
+# Pseudo Classes
+
+> \+ are the more commonly used ones, \* are the experimental ones, \*\* need to be reviewed
+
+- a pseudo class is added to a selector that specifies a special state of the selected element
+- apply style to external factors like the history of the navigator or position of the mouse, or the status of its content
+- +[`:active`](https://developer.mozilla.org/en-US/docs/Web/CSS/:active)
+  - this pseudo class represents an element that is being activated by the user
+  - must only apply to the primary button
+  - put the `:active` rule after all other link-related rules
+  - `:link` -> `:visited` -> `:hover` -> `:active`
+- [`:any-link`](https://developer.mozilla.org/en-US/docs/Web/CSS/:any-link)
+  - this pseudo class represents an element that acts as the source anchor of a hyperlink
+  - matches every `<a>` or `<area>` that has an `href` attribute
+  - all elements that match `:link` or `:visited`
+- [`:autofill`](https://developer.mozilla.org/en-US/docs/Web/CSS/:autofill)
+  - this pseudo class matches when an `<input>` element has its value autofilled by the browser
+  -
+- \*[`:blank`](https://developer.mozilla.org/en-US/docs/Web/CSS/:blank)
+  - this pseudo class selects empty user input elements
+- [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)
+  - this pseudo class represents any radio element that is checked or toggled to an `on` state
+  - this include `<input type="radio">`, `<input type="checkbox">`, or `<option>` in a `<select>`
+- \*\*[`:current`](https://developer.mozilla.org/en-US/docs/Web/CSS/:current)
+  - this pseudo class is a time dimensional pseudo class that represents the element, or an ancestor of the element that is currently being displayed
+- [`:default`](https://developer.mozilla.org/en-US/docs/Web/CSS/:default)
+  - this pseudo class selects from elements that are the default in a group of related elements
+  - what this pseudo class matches are defined in [HTML Standard §4.16.3 Pseudo-classes](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-default)
+  - default `<option>` is the first one with `selected` attribute, multiple `<select>` can all match `:default`
+  - `type=checkbox` and `type=radio` match if they have the `checked` attribute
+  - `button`, `type=image`, or `type=submit` matches if they are in a `form`
+- [`:defined`](https://developer.mozilla.org/en-US/docs/Web/CSS/:defined)
+  - this pseudo class represent any element that has been defined
+- [`:dir()`]()
+- [`:disabled`]()
+- [`:empty`]()
+- [`:enabled`]()
+- [`:first`]()
+- [`:first-child`]()
+- [`:first-of-type`]()
+- [`:fullscreen`]()
+- [`:future`]()
+- [`:focus`]()
+- [`:focus-visible`]()
+- [`:focus-within`]()
+- [`:has()`]()
+- [`:host`]()
+- [`:host()`]()
+- [`:host-context()`]()
+- [`:hover`]()
+- [`:indeterminate`]()
+- [`:in-range`]()
+- [`:invalid`]()
+- [`:is()`]()
+- [`:lang()`]()
+- [`:last-child`]()
+- [`:last-of-type`]()
+- [`:left`]()
+- [`:link`]()
+- [`:local-link`]()
+- [`:not()`]()
+- [`:nth-child()`]()
+- [`:nth-col()`]()
+- [`:nth-last-child()`]()
+- [`:nth-last-col()`]()
+- [`:nth-last-of-type()`]()
+- [`:nth-of-type()`]()
+- [`:only-child`]()
+- [`:only-of-type`]()
+- [`:optional`]()
+- [`:out-of-range`]()
+- [`:past`]()
+- [`:picture-in-picture`]()
+- [`:placeholder-shown`]()
+- [`:paused`]()
+- [`:playing`]()
+- [`:read-only`]()
+- [`:read-write`]()
+- [`:required`]()
+- [`:right`]()
+- [`:root`]()
+- [`:scope`]()
+- [`:state()`]()
+- [`:target`]()
+- [`:target-within`]()
+- [`:user-invalid`]()
+- [`:valid`]()
+- [`:visited`]()
+- [`:where`]()
