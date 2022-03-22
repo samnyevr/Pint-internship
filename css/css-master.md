@@ -240,4 +240,158 @@ h1 /* Selector */ {
 
 ## Background Properties
 
--
+- `background-color`
+  - used to set an element's background color
+  - **values:** _transparent_ or color value
+- `background-image`
+  - used to set a background image for any element
+- `background-repeat`
+  - used to determine how a background image tiles when it is smaller than the region it is used in
+  - **values:** _repeat_, _repeat-x_, _repeat-y_, _no-repeat_
+- `background-attackment`
+  - can be set to limit if a background should be fixed or scroll
+  - **values:** _fixed_, _scroll_
+- `background-position`
+  - used to specified where a background image should be positioned
+- `background`
+  - short hand property for all the above
+
+> Font and Background Image are fetched by the element that requested it
+
+## Box Properties
+
+- includes `margins`, `border`, `padding`
+- `box-sizing`:
+  - `content-box`: element size is defind by just the content size itself
+  - `border-box`: element size is defined by adding the border, padding and the size of the content size
+
+### Margins
+
+- `margin`,`margin-top`,`margin-right`,`margin-bottom`,`margin-left`
+  - can set with negative units, but be careful about clipping
+
+### Borders
+
+- `border-style`
+  - used to set type of border
+  - **values:** _dotted_, _dashed_, _double_, _groove_, _ridge_, _inset_, _outset_
+- `border-width`
+- `border-color`
+
+### Padding
+
+- padding can be set to specify the space between the element's border and its contents
+- `padding`, `padding-top`, `padding-right`, `padding-bottom`, `padding-left`
+
+## Float and Clear
+
+- `float`
+  - property that float block elements, which allows text to wrap around the block element
+- `clear`
+  - act like a `<br>` to clear the floating madness
+
+## Display
+
+- `none`
+  - not only invisible but doesn't take up window space
+- `block`
+  - can be used to turn an element into a block element
+- `inline`
+  - turn an element to an inline form
+- `list-item`
+  - turn an element to an inline
+- `compact`
+- `run-in`
+- `marker`
+  - allows the automatic inclusion of flagged elements
+
+## Position
+
+- `static`
+  - take position from the document flow
+- `absolute`
+  - fixed position relative to the parent
+- `relative`
+  - fixed position relative to itself
+- `fixed`
+  - fixed position on screen
+- `inherit`
+
+  - position taken from its parent
+
+## z-index
+
+- used when elements overlap one another
+- the order in which the tag is encountered in the document determines the stacking value
+
+## visibility
+
+- determine whether an element is visible
+- **values:** _visible_, _hidden_, _inherit_
+
+## Overflow
+
+- determines what should happen when content doesn't fit in its allocated space defined by `height` and `width` properties
+- **values:** _hidden_, _scroll_, _none_
+
+## Min and Max Height and Width
+
+- `max-width` & `max-height`
+  - set to indicate how large a region can grow
+- `min-width` & `min-height`
+  - set to indicate how small a region can strink
+
+## Clipping Regions
+
+- `clip` property can be used to set the coordinates of a clipping rectangle
+  - `clip: rect(top right bottom left)`
+
+## User Interface focused
+
+- `cursor`
+  - can be used to set cursors appearance
+  - **values:** _pointer_, _text_, _crosshair_, _nw-resize_, _s-resize_, _wait_, or custom cursor
+
+## Browser Based CSS Changes
+
+- `zoom` allows you to scale text-objects up and down
+- `scrollbar-face-color` control the scroll bar color
+
+## CSS Rounded Corners
+
+- `border-radius` can be used to control border curvatures
+- `border-image`
+- `border-reflect`
+
+## box-shadow
+
+- set a shadow for a box element
+
+## CSS Gradients
+
+- gradient image that can be used anywhere an image URL is required
+- can be used by `background-image`, `border-image`, and `list-style`
+
+## text-shadow
+
+## text-stroke
+
+## CSS Animation
+
+## CSS Transforms
+
+## CSS Transition
+
+## CSS Variable
+
+- `var()`
+- definied first in `:root`
+
+```
+:root {
+  --background-color: red;
+}
+.someClass {
+  background-color: var(--background-color)
+}
+```
