@@ -1,0 +1,45 @@
+p.focus-visible-target {
+  padding: 1em;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+#focus-input:focus {
+  outline: none;
+  border: 2px solid rgb(238, 57, 57);
+  background-color: rgb(235, 213, 235);
+}
+
+.focus-visible-target:focus-visible {
+  outline: none;
+  border: 2px solid rgb(75, 164, 112);
+  background-color: rgb(178, 231, 255);
+}
+
+fieldset {
+  width: fit-content;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > * {
+  margin-bottom: 1em;
+}
+
+input[type="text"],
+select,
+button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+fieldset:focus-within {
+  border: 2px solid green;
+  background-color: lightgreen;
+}

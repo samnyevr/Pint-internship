@@ -11,7 +11,7 @@
   - must only apply to the primary button
   - put the `:active` rule after all other link-related rules
   - `:link` -> `:visited` -> `:hover` -> `:active`
-- #[`:any-link`](https://developer.mozilla.org/en-US/docs/Web/CSS/:any-link)
+- [`:any-link`](https://developer.mozilla.org/en-US/docs/Web/CSS/:any-link)
   - this pseudo class represents an element that acts as the source anchor of a hyperlink
   - matches every `<a>` or `<area>` that has an `href` attribute
   - all elements that match `:link` or `:visited`
@@ -19,12 +19,12 @@
   - this pseudo class matches when an `<input>` element has its value autofilled by the browser
 - \*[`:blank`](https://developer.mozilla.org/en-US/docs/Web/CSS/:blank)
   - this pseudo class selects empty user input elements
-- @[`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)
+- [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)
   - this pseudo class represents any radio element that is checked or toggled to an `on` state
   - this include `<input type="radio">`, `<input type="checkbox">`, or `<option>` in a `<select>`
 - \*\*[`:current`](https://developer.mozilla.org/en-US/docs/Web/CSS/:current)
   - this pseudo class is a time dimensional pseudo class that represents the element, or an ancestor of the element that is currently being displayed
-- #[`:default`](https://developer.mozilla.org/en-US/docs/Web/CSS/:default)
+- [`:default`](https://developer.mozilla.org/en-US/docs/Web/CSS/:default)
   - this pseudo class selects from elements that are the default in a group of related elements
   - what this pseudo class matches are defined in [HTML Standard §4.16.3 Pseudo-classes](https://html.spec.whatwg.org/multipage/semantics-other.html#selector-default)
   - default `<option>` is the first one with `selected` attribute, multiple `<select>` can all match `:default`
@@ -37,13 +37,13 @@
 - [`:dir()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:dir)
   - this pseudo class targets elements based on the directionality of the text contained in them
   - this is different than `[dir=...]` in which this will target based on what the browser definition of the direction
-- @+[`:disabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:disabled)
+- +[`:disabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:disabled)
   - this pseudo class represetns any disabled element
 - [`:empty`](https://developer.mozilla.org/en-US/docs/Web/CSS/:empty)
   - this pseudo class represents any element that has no children.
   - older browsers will not target the element if there are white space in between the tags
   - all browser will not target the element if there are comment inside the tags
-- @+[`:enabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:enabled)
+- +[`:enabled`](https://developer.mozilla.org/en-US/docs/Web/CSS/:enabled)
   - this pseudo class represents any enabled element
   - it is enabled if it can be activated(selected, clicked on, typed into, or accept focus)
 - [`:first`](https://developer.mozilla.org/en-US/docs/Web/CSS/:first)
@@ -55,20 +55,20 @@
   - this pseudo class represents the first element among a group of sibling elements
 - +[`:first-of-type`](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-of-type)
   - this pseudo class represents the first element of its type among a group of sibling elements
-- #[`:fullscreen`](https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen)
+- [`:fullscreen`](https://developer.mozilla.org/en-US/docs/Web/CSS/:fullscreen)
   - this pseudo class matches every element which is currently in fullscreen mode
 - [`:future`](https://developer.mozilla.org/en-US/docs/Web/CSS/:future)
   - this pseudo class selector is a time-dimensional that will match for any element which appears entirely after an element that matches `:current`
-- #+[`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus)
+- +[`:focus`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus)
   - this pseudo class represents an element that has received focus
   - usually triggered when the user clicks or <kbd>Tab</kbd>
-- #[`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
+- [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
   - this pseudo class applies while an element matches the `:focus` pseudo class and the browser determins if the said element should be focused
   - can have different effect with click vs <kbd>Tab</kbd>
-- #[`:focus-within`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within)
+- [`:focus-within`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within)
   - this pseudo class matches if an element or its descendants are focused
   - this include descendants in shadow trees
-- +\*[`:has()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has)
+- \*[`:has()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has)
   - this speudo class represents an element if any of the selectors passed as parameters
   - `a:has(> img)` will select any `<a>` with `<img>` directly inside it
 - [`:host`](https://developer.mozilla.org/en-US/docs/Web/CSS/:host)
@@ -79,15 +79,15 @@
   - can target the custom element from the shadow DOM that target the specifc element when the content are added within the custom element
 - +[`:hover`](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover)
   - this pseudo class matches when the user interacts with an element with a pointing device, but not necessarily activate it
-- @[`:indeterminate`](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate)
+- [`:indeterminate`](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate)
   - this pseudo class represents any form element whose state is indeterminated
   - meaning the initial state when some input isn't determined
   - this will target `<input type="checkbox">`, `<input type="radio">`, or `<progress>`
-- @[`:in-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:in-range)
+- [`:in-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:in-range)
   - this pseudo class represents an `<input>` element whose current value is within the range limits specified by the `min` and `max` attributes
-- @[`:invalid`](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid)
+- [`:invalid`](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid)
   - this pseudo class represents any `<input>`, `<form>`, or `<fieldset>` whose content fail to validate
-- #+[`:is()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)
+- +[`:is()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)
   - this pseudo class takes a selector list as its argument, and selects any element that can be selected on of the selectors in that list
   - this is aim to provide a more compacted way of writing a list of selectors
   - `:is(header, footer) p` is equivalent to `header p, footer p`
@@ -123,9 +123,9 @@
   - this pseudo class targets an element when it has no siblings
 - +[`:only-of-type`](https://developer.mozilla.org/en-US/docs/Web/CSS/:only-of-type)
   - this pseudo class targets an element when it has no siblings with the same tag
-- @+[`:optional`](https://developer.mozilla.org/en-US/docs/Web/CSS/:optional)
+- +[`:optional`](https://developer.mozilla.org/en-US/docs/Web/CSS/:optional)
   - this pseudo class represents any `<input>`, `<select>`, or `<textarea>` when the `required` is not specified
-- @[`:out-of-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:out-of-range)
+- [`:out-of-range`](https://developer.mozilla.org/en-US/docs/Web/CSS/:out-of-range)
   - this pseudo class represents an `<input>` element whose current value is outside the rang of the spcified `min` and `max`
   - this only targets those that can specify the `min` and `max`
 - [`:past`](https://developer.mozilla.org/en-US/docs/Web/CSS/:past)

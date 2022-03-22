@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Demo</title>
+
+    <link rel="stylesheet" href="focusDemo.css" type="text/css" />
+  </head>
+  <body>
+    <section>
+      <header>
+        <h2>:focus are usually used on the input fields</h2>
+        <p>press <kbd>Tab</kbd> or click on the input field</p>
+      </header>
+      <form action="">
+        <label for="focus-input"
+          >Text Input: <input type="text" id="focus-input"
+        /></label>
+      </form>
+    </section>
+    <section>
+      <header>
+        <h2>Another useful pseudo states we can use is :focus-within</h2>
+        <p>This will focus which field that you are editing currently</p>
+      </header>
+      <fieldset>
+        <legend>This is a form field</legend>
+        <form action="">
+          <label for="">Name: <input type="text" /></label>
+          <label for=""
+            >Light <input type="radio" name="mode" value="light" checked
+          /></label>
+          <label for=""
+            >Dark <input type="radio" name="mode" value="dark"
+          /></label>
+          <label for="">Favorite Color <input type="color" /></label>
+          <label for=""
+            >Favorite Fruit
+            <select name="" id="">
+              <option value="Apple">Apple</option>
+            </select>
+          </label>
+          <button>button</button>
+        </form>
+      </fieldset>
+      <fieldset>
+        <legend>This is another form field</legend>
+        <form action="">
+          <label for="">Name: <input type="text" /></label>
+          <label for=""
+            >Light <input type="radio" name="mode" value="light" checked
+          /></label>
+          <label for=""
+            >Dark <input type="radio" name="mode" value="dark"
+          /></label>
+          <label for="">Favorite Color <input type="color" /></label>
+          <label for=""
+            >Favorite Fruit
+            <select name="" id="">
+              <option value="Apple">Apple</option>
+            </select>
+          </label>
+          <button>button</button>
+        </form>
+      </fieldset>
+    </section>
+    <section>
+      <header>
+        <h2>Lastly we have the :focus-visible</h2>
+        <p>
+          This will target the focusable field but based on the browser to
+          determine whether the field is meant to be focued on or not
+        </p>
+      </header>
+      <p tabindex="0" class="focus-visible-target">
+        This is a paragrpah that can be focus press <kbd>Tab</kbd> or click on
+        this element
+      </p>
+      <label
+        >Text Input: <input class="focus-visible-target" type="text"
+      /></label>
+    </section>
+  </body>
+</html>
