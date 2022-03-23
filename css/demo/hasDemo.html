@@ -8,37 +8,42 @@
     <link rel="stylesheet" href="hasDemo.css" type="text/css" />
   </head>
   <body>
-    <ul>
-      <li>Some list item</li>
-      <li>Some more list item</li>
-      <li>there are more list item</li>
-      <li>overflow with list item</li>
-    </ul>
-    <section>
-      <p class="fancy">Paragraph with class="fancy"</p>
-    </section>
-    <section>
-      <p>Some text that aren't fancy enough</p>
-    </section>
-    <section>
-      <span>This is a span text</span>
-    </section>
     <section>
       <article>
-        <span>This is a span text that's not direct child of section</span>
+        <p>
+          This is a paragraph that can be used to target the &lt;article&gt;
+          with :has()
+        </p>
       </article>
     </section>
     <section>
-      <button class="target">Button 1</button>
+      <section>
+        <p class="fancy">Paragraph with class="fancy"</p>
+        <p>
+          and this is a different &lt;p&gt; tag showing that we are targeting
+          specifically the ancestor of these elements
+        </p>
+      </section>
+      <section>
+        <p>Some text that aren't fancy enough</p>
+      </section>
     </section>
-    <header>
-      <h2>h2</h2>
-      <h3>h3</h3>
-    </header>
-    <header>
-      <h2>h2</h2>
-      <h3>h3</h3>
-      <h4>h4</h4>
-    </header>
+    <section>
+      <header>
+        <h2>
+          Sometimes we have 2 &lt;section&gt;s that have a &lt;header&gt; group
+        </h2>
+        <h3>Some kind of subtitle</h3>
+      </header>
+    </section>
+    <section>
+      <header>
+        <h2>
+          But we want to target the other &lt;section&gt;'s &lt;header&gt; group
+        </h2>
+        <h3>This one also have subtitle</h3>
+        <p>But this one have an explanation to the subtitle</p>
+      </header>
+    </section>
   </body>
 </html>

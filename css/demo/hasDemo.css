@@ -1,19 +1,11 @@
-ul:has(li) {
+article:has(p) {
   color: red;
 }
 
-section:has(.fancy) {
+section:has(> .fancy) {
   background-color: lightgreen;
 }
 
-section:has(> span) {
-  background-color: lightblue;
-}
-
-section:has(button.target) {
-  background-color: aqua;
-}
-
-header:not(:has(> h4)) {
+header:not(:has(> p)) {
   border: 1px solid black;
 }
