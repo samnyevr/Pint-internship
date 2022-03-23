@@ -1,0 +1,19 @@
+ul:has(li) {
+  color: red;
+}
+
+section:has(.fancy) {
+  background-color: lightgreen;
+}
+
+section:has(> span) {
+  background-color: lightblue;
+}
+
+section:has(button.target) {
+  background-color: aqua;
+}
+
+header:not(:has(> h4)) {
+  border: 1px solid black;
+}
