@@ -49,6 +49,4 @@ section:has(> span) {
 
 This will select the `<section>` that has a direct child of `<p>`
 
-One thing to note is that, we are selecting the ancestor element using `:has()` instead of targting the descendent element, so on the next example, we have the background color for `section` for Button 1 instead of setting the background color for the button itself
-
-We can definitely go a little crazy on nesting, but be careful with the ordering of this. In this case, we are targeting any `<header>` that doesn't have any `<h4>` and we are setting the `border` property to the `<header>` itself
+One thing to note is that, we are selecting the ancestor element using `:has()` instead of targting the descendent element
