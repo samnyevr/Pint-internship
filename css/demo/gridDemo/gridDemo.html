@@ -4,6 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grid Demo</title>
+    <link rel="stylesheet" href="gridDemo.css" type="text/css" />
+    <script type="module" src="gridDemo.js"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- remove div separaters -->
+    <div></div>
+    <div></div>
+    <div>
+      <ul>
+        <li>
+          <button id="layout1">Layout 1</button>
+        </li>
+        <li>
+          <button id="layout2">Layout 2</button>
+        </li>
+        <li>
+          <button id="layout3">Layout 3</button>
+        </li>
+      </ul>
+      <section id="layout">
+        <header class="border">Header</header>
+        <section class="hero-page border">Hero</section>
+        <section class="content-main border">Content</section>
+        <aside class="content-secondary border">Secondary Content</aside>
+        <section class="sidebar border">Sidebar</section>
+        <footer class="border">Footer</footer>
+      </section>
+    </div>
+  </body>
 </html>
