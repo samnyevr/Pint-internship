@@ -8,11 +8,12 @@ body {
 /* display elements to set up for mock Demo layout */
 body {
   width: 100vw;
-  display: grid;
-  grid-template-columns: 30% 35% 35%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-div {
+section.demo-layout {
+  width: 35%;
   height: 100vh;
   border: 1px solid black;
 }
@@ -26,24 +27,57 @@ ul {
   justify-content: space-evenly;
 }
 
+/* styling for the button to make them look nicer*/
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
 /* grid container */
-#layout {
+.grid {
   display: grid;
-
-  grid:
-    "header header"
-    "hero hero"
-    "side content"
-    "secondary secondary"
-    "footer footer";
-
+  height: 90%;
   gap: 10px;
+  margin: 1em;
+}
+
+/* different grid layouts */
+.grid-layout1 {
+  grid:
+    "header header" minmax(100px, 1fr)
+    "hero hero" 3fr
+    "side content" 2fr
+    "secondary secondary" 2fr
+    "footer footer" minmax(100px, 1fr) / 1fr 3fr;
+}
+
+.grid-layout2 {
+  grid:
+    "header hero hero" 4fr
+    "content content side" 3fr
+    "secondary secondary secondary" 2fr
+    "footer footer footer" minmax(100px, 1fr) / 1fr 2fr 1fr;
+}
+
+.grid-layout3 {
+  grid:
+    "header header header" minmax(100px, 1fr)
+    "hero content side" 4fr
+    "secondary secondary side" 2fr
+    "footer footer footer" minmax(100px, 1fr) / 3fr 3fr 1fr;
 }
 
 /* general styling for all the content in the grid */
-.border {
+.grid-item {
   border: 2px solid black;
   background-color: lightblue;
+  text-align: center;
+  font-size: x-large;
+  font-family: sans-serif;
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* individaul content on the grid */

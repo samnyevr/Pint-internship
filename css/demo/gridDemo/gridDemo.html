@@ -8,29 +8,26 @@
     <script type="module" src="gridDemo.js"></script>
   </head>
   <body>
-    <!-- remove div separaters -->
-    <div></div>
-    <div></div>
-    <div>
+    <section class="demo-layout">
       <ul>
         <li>
-          <button id="layout1">Layout 1</button>
+          <button id="button-layout1">Layout 1</button>
         </li>
         <li>
-          <button id="layout2">Layout 2</button>
+          <button id="button-layout2">Layout 2</button>
         </li>
         <li>
-          <button id="layout3">Layout 3</button>
+          <button id="button-layout3">Layout 3</button>
         </li>
       </ul>
-      <section id="layout">
-        <header class="border">Header</header>
-        <section class="hero-page border">Hero</section>
-        <section class="content-main border">Content</section>
-        <aside class="content-secondary border">Secondary Content</aside>
-        <section class="sidebar border">Sidebar</section>
-        <footer class="border">Footer</footer>
+      <section class="grid grid-layout1">
+        <header class="grid-item">Header/Navbar</header>
+        <section class="hero-page grid-item">Hero</section>
+        <section class="content-main grid-item">Content</section>
+        <aside class="content-secondary grid-item">Secondary Content</aside>
+        <section class="sidebar grid-item">Sidebar</section>
+        <footer class="grid-item">Footer</footer>
       </section>
-    </div>
+    </section>
   </body>
 </html>
