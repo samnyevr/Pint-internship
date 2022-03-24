@@ -1,0 +1,229 @@
+# Grid
+
+- two dimensional context
+- some important terminologies
+  - **grid container**
+    - the parent element that host the grid
+  - **grid item**
+    - each individual element that are within the grid
+  - **grid line**
+    - each line that are drawn(usually not shown) between each element
+  - **grid cell**
+    - the whole unit of the element, which also include the extra spacing within that element
+  - **grid track**
+    - each row and column within a grid
+  - **grid area**
+    - equal number of row and column that are adjacent to each other, starting with 2x2 and move upward
+  - `fr`
+    - allows for setting the size of a track as a fraction of the free space
+    - this is calculated after all non-flexible items
+
+## Grid Container
+
+- `display`
+  - **syntax**
+    - `grid | inline-grid`
+- `grid-template-columns` & `grid-template-rows`
+  - defines a template for columns and rows
+  - **syntax**
+    - `<track-size> | [<line-name>]`
+    - `<track-size>`
+  - `<track-size>`
+    - size of each row/column
+    - can be any unit
+  - `<line-name>`
+    - the lines between each row/column
+    - can be any name
+    - can take multiple arguments
+- `grid-template-area`
+  - defines a template for the area
+  - each name in the grid defines a cell
+  - **syntax:**
+    - `"<grid-area-name> | ."`
+    - `none`
+  - `<grid-area-name>`
+    - the name that is specified
+  - `.`
+    - an empty grid cell
+  - `none`
+    - no grid area defined
+  - each rows much have the same numbers of cells
+- `grid-template`
+  - short hand to define `grid-template-rows`, `grid-template-columns`, and `grid-template-areas`
+  - **syntax:**
+    - `<grid-template-areas> | <grid-template-rows> / <grid-template-columns>`
+    - `<grid-template-areas> <grid-template-rows> / <grid-template-columns>`
+  - if `<grid-template-areas>` is not defined it will default to `none`
+- `column-gap`, `row-gap`
+  - defines the size of the grid lines
+  - **syntax:**
+    - `<line-size>`
+  - can be any unit values
+  - can't specify the outer edge of the grid
+- `gap`
+  - short hand for `column-gap` and `row-gap`
+  - **syntax:**
+    - `<row-gap> | <column-gap>`
+- `justify-items`
+  - aligns grid items along the row axis
+  - **values:**
+    - `stretch`
+      - fills the whole width of the cell
+    - `start`
+      - align items to the start edge of their cell
+    - `end`
+      - align items to the end edge of their cell
+    - `center`
+      - align items to the center of their cell
+- `align-items`
+  - aligns grid items along the column axis
+  - **values:**
+    - `stretch`
+      - fills the whole height of the cell
+    - `start`
+      - aligns items to the start edge of their cell
+    - `end`
+      - align items to the end edge of their cell
+    - `center`
+      - align items to the center of their cell
+    - `baseline`
+      - align items along text baseline
+- `place-items`
+  - short hand for `align-items` and `justify-items`
+  - **syntax:**
+    - `<align-items> <justify-items>`
+  - if one of the value is omitted, then it will set both to the same value
+- `justify-content`
+  - aligns the whole grid along the row axis
+  - this is useful when the total grid size is smaller than the grid container
+  - **values:**
+    - `start`
+      - aligns the grid to the start edge of the grid container
+    - `end`
+      - aligns the grid to the end edge of the grid container
+    - `center`
+      - align the grid to the center of the grid container
+    - `stretch`
+      - fill the full width of the grid container
+    - `space-around`
+      - places an even amount of space between each grid items, with only half of the space on outside of the grid
+    - `space-between`
+      - places an even amount of space between each grid items, with no space on the outside of the grid
+    - `space-evenly`
+      - places an even amount of space between each grid items, including the outside of the grid
+- `align-content`
+  - aligns the whole grid along the column axis
+  - this is useful when the total grid size is smaller than the grid container
+  - `start`
+    - aligns the grid to the start edge of the grid container
+  - `end`
+    - aligns the grid to the end edge of the grid container
+  - `center`
+    - align the grid to the center of the grid container
+  - `stretch`
+    - fill the full width of the grid container
+  - `space-around`
+    - places an even amount of space between each grid items, with only half of the space on outside of the grid
+  - `space-between`
+    - places an even amount of space between each grid items, with no space on the outside of the grid
+  - `space-evenly`
+    - places an even amount of space between each grid items, including the outside of the grid
+- `place-content`
+  - short hand for `align-content` and `justify-content`
+  - **syntax:**
+    - `<align-content> <justify-content>`
+  - if one of the value is omitted, then it will set both to the same value
+- `grid-auto-columns` & `grid-auto-rows`
+  - specifies the size of any grid tracks that are created when grid items are placed outside of the grid
+- `grid-auto-flow`
+  - specifies which way the grid will be filled up if the grid items aren't being specified their cell
+  - **syntax:**
+    - `row | column | row dense | column dense`
+  - `dense` keyword tells the algorithm to place smaller contents in first
+- `grid`
+  - short hand for `grid-template-rows`, `grid-template-columns`, `grid-template-areas`, `grid-auto-rows`, `grid-auto-columns`, and `grid-auto-flow`
+  - **values:**
+    - `none`
+    - `<grid-template>`
+    - `<grid-template-rows> / [ auto-flow && dense? ] <grid-auto-columns>?`
+      - this will set the `auto-flow` to `column`
+    - `[ auto-flow && dense? ] <grid-auto-rows>? / <grid-template-columns>`
+      - this will set the `auto-flow` to `row`
+
+## Grid Items
+
+- `grid-column-start`, `grid-column-end`, `grid-row-start`, `grid-row-end`
+  - determines the grid item's location based on which grid line is being called
+  - **values:**
+    - `<number>`
+      - the grid line number
+    - `<name>`
+      - the grid line name
+    - `span <number>`
+      - the item will span across for however much number specified
+    - `span <name>`
+      - the item will span across until it hits the line name spcified
+    - `auto`
+- `grid-column` & `grid-row`
+  - short hand for `grid-column-start` and `grid-column-end` & `grid-row-start` and `grid-row-end`
+  - **syntax**
+    - `<start-line> / <end-line>`
+- `grid-area`
+  - can refer to the area name specified in `grid-template-area`
+  - or a short hand for `grid-row-start`, `grid-row-end`, `grid-column-start`, `grid-column-end`
+- `justify-self`
+  - aligns grid item inside a cell along the row axis
+  - **values:**
+    - `start`
+      - align the grid item to the start edge of the cell
+    - `end`
+      - align the grid item to the end edge of the cell
+    - `center`
+      - align the grid item to the center edge of the cell
+    - `stretch`
+      - stretch the grid item out to fill the cell
+- `align-self`
+  - aligns grid item inside a cell along the column axis
+  - **values:**
+    - `start`
+      - align the grid item to the start edge of the cell
+    - `end`
+      - align the grid item to the end edge of the cell
+    - `center`
+      - align the grid item to the center edge of the cell
+    - `stretch`
+      - stretch the grid item out to fill the cell
+- `place-self`
+  - short hand for `justify-self`, `align-self`
+  - **syntax:**
+    - `<align-self> <justify-self>`
+  - if one of the value is omitted, then it will set both to the same value
+
+## Special Units & Functions
+
+### fr units
+
+- meaning the portion of the remaining space
+- `1fr 1fr` = 2 50%
+
+### sizing keywords
+
+- any units can be used
+- `min-content`
+  - the minimum size of the content
+- `max-content`
+  - the maximum size of the content
+- `auto`
+  - kind of like `fr` but it can't compete with it
+- `fit-content`
+  - use the space available, but never less than `min-content` and never more than `max-content`
+
+### sizing functions
+
+- `minmax(100px, 1fr)` is setting the `min()` and `max()` of the declaration
+
+### repeat() function
+
+- `repeat(4, 1fr)` is the same as `1fr 1fr 1fr 1fr`
+- can be combined with `auto-fill` and `auto-fit` or `minmax()`
+- one of the best one to use is `repeat(auto-fit, minmax(250px, 1fr))`
