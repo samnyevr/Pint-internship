@@ -1,0 +1,97 @@
+/* reset */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 1.5em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* adding a blue border all the elements that needed to be showcase */
+header,
+section:not(#examples),
+footer,
+.card {
+  border: 5px solid lightblue;
+  border-radius: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  padding: 10px 60px;
+}
+
+footer {
+  margin-top: auto;
+  height: 10vh;
+}
+
+nav:not(#mobile-view) {
+  margin-left: auto;
+  width: 60%;
+}
+
+nav ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+section ul {
+  display: flex;
+  margin: 0 10vw;
+  gap: 10vw;
+  flex-wrap: wrap;
+}
+
+.card {
+  min-width: 400px;
+  height: 30vh;
+}
+
+#hero-page {
+  height: 40vh;
+}
+
+@media (max-width: 1200px) {
+  body {
+    font-size: 1.2em;
+  }
+  section ul {
+    gap: 5vw;
+  }
+}
+
+@media (max-width: 992px) {
+  body {
+    font-size: 1em;
+  }
+  section ul {
+    gap: 0;
+  }
+}
+
+@media (max-width: 776px) {
+  nav:not(#mobile-view) {
+    display: none;
+  }
+  #mobile-view {
+    margin-left: auto;
+    display: block;
+  }
+}
