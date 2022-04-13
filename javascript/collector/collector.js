@@ -102,6 +102,7 @@ const EVENT = {
   },
 };
 
+// Queue class to enqueue dequeue and push to localStorage
 class Queue {
   constructor() {
     this.container = JSON.parse(localStorage.getItem(["queue"])) || [];
@@ -118,6 +119,10 @@ class Queue {
     return data;
   }
 
+  get length() {
+    return this.container.length;
+  }
+
   get isEmpty() {}
 
   get peek() {
@@ -125,13 +130,96 @@ class Queue {
   }
 }
 
-
 // initialize the queue array for storing all the collected data
 let queue = new Queue();
 // let queue = JSON.parse(localStorage.getItem(["queue"])) || [];
 
 // binding event listeners
-function bindEventListeners() {}
+function bindEventListeners() {
+  let mousemoveEvents = 0;
+
+  // Record every 10th mouse coordinate inside the window (there will be a lot)
+  window.addEventListener("mousemove", (e) => {
+    mousemoveEvents += 1;
+    if (mousemoveEvents % 10 != 0) return;
+    let newMouseMove = {
+      coordinates: {
+        clientX: e.clientX,
+        clientY: e.clientY,
+        layerX: e.layerX,
+        layerY: e.layerY,
+        offsetX: e.offsetX,
+        offsetY: e.offsetY,
+        pageX: e.pageX,
+        pageY: e.pageY,
+        screenX: e.screenX,
+        screenY: e.screenY,
+        x: e.x,
+        y: e.y,
+      },
+      altKey: e.altKey,
+      ctrlKey: e.ctrlKey,
+      shiftKey: e.shiftKey,
+      timestamp: e.timeStamp,
+    };
+    EVENT.mousePosition.push(newMouseMove);
+    queue.enqueue = EVENT;
+  });
+
+  // Record all mouse clicks inside the window
+  window.addEventListener("click", (e) => {
+    let newClick = {
+      coordinates: {
+        clientX: e.clientX,
+        clientY: e.clientY,
+        layerX: e.layerX,
+        layerY: e.layerY,
+        offsetX: e.offsetX,
+        offsetY: e.offsetY,
+        pageX: e.pageX,
+        pageY: e.pageY,
+        screenX: e.screenX,
+        screenY: e.screenY,
+        x: e.x,
+        y: e.y,
+      },
+      altKey: e.altKey,
+      ctrlKey: e.ctrlKey,
+      shiftKey: e.shiftKey,
+      timestamp: e.timeStamp,
+    };
+    EVENT.mouseClicks.push(newClick);
+    queue.enqueue = EVENT;
+  });
+
+  // Record all keydowns inside the window
+  window.addEventListener("keydown", (e) => {
+    let newKeydown = {
+      key: e.key,
+      code: e.code,
+      altKey: e.altKey,
+      ctrlKey: e.ctrlKey,
+      shiftKey: e.shiftKey,
+      timestamp: e.timeStamp,
+    };
+    EVENT.keystrokes.keydown.push(newKeydown);
+    queue.enqueue = EVENT;
+  });
+
+  // Record all keyups inside the window
+  window.addEventListener("keyup", (e) => {
+    let newKeyup = {
+      key: e.key,
+      code: e.code,
+      altKey: e.altKey,
+      ctrlKey: e.ctrlKey,
+      shiftKey: e.shiftKey,
+      timestamp: e.timeStamp,
+    };
+    EVENT.keystrokes.keyup.push(newKeyup);
+    queue.enqueue = EVENT;
+  });
+}
 
 // initialize all queries and event listeners
 async function init() {
@@ -139,19 +227,35 @@ async function init() {
   collectStatic();
 
   // collect initial STATIC data
-  /*
-   */
-  // queue.push(JSON.stringify(STATIC));
-  // localStorage.setItem("queue", JSON.stringify(queue));
   queue.enqueue = STATIC;
 
   // collect initial window.performance data
   await collectPerformance();
-  await queue.enqueue = DYNAMIC;
-  // await queue.push(JSON.stringify(DYNAMIC));
-  // await localStorage.setItem("queue", JSON.stringify(queue));
+  queue.enqueue = DYNAMIC;
 
-  await fetchEndPoint("https://httpbin.org/post");
+  // collect();
+  // send();
+}
+
+// set an interval of 10seconds to collect dynamic data
+function collect() {
+  let interval = setInterval(async () => {
+    await collectPerformance();
+    queue.enqueue = DYNAMIC;
+  }, 10000);
+}
+
+// send to end point whene there are still data collected in the queue
+// else loop through this fucntion again in 5 seconds to check if there are still data
+async function send() {
+  console.log("sending data");
+  while (queue.length > 0) {
+    console.log(queue.length);
+    let reseult = await fetchEndPoint("https://httpbin.org/post");
+    console.log(reseult);
+  }
+
+  setTimeout(send, 5000);
 }
 
 // initialize the static data
@@ -243,7 +347,7 @@ async function fetchEndPoint(url) {
   try {
     let response = await fetch(url, {
       method: "POST",
-      body: localStorage.get("queue"),
+      body: JSON.stringify(queue.dequeue),
     });
     if (!response.ok) {
       throw new Error(`an error has occured: ${response.status}`);
