@@ -67,7 +67,11 @@ const STATIC = {
 
 const DYNAMIC = {
   screen: {
-    orientation: undefined,
+    orientation: {
+      angle: undefined,
+      type: undefined,
+      onchange: undefined,
+    },
   },
   performance: {
     startTime: undefined,
@@ -258,7 +262,7 @@ async function send() {
   setTimeout(send, 5000);
 }
 
-// initialize the static data
+// collect all the static data
 function collectStatic() {
   for (let data in STATIC) {
     if (isObject(STATIC[data])) {
@@ -271,7 +275,7 @@ function collectStatic() {
   }
 }
 
-// collect all perrformance data and send back as a promise
+// collect all the perrformance data and send back as a promise
 function collectPerformance() {
   let perf = performance.getEntriesByType("navigation")[0];
   do {
@@ -298,6 +302,14 @@ function collectPerformance() {
       });
     }, 250);
   } while (perf.loadEventEnd != 0);
+}
+
+// collect the screen orientation dynamic data
+function collectScreen() {
+  let orientation = window.screen.orientation;
+  for (let data in orientation) {
+    DYNAMIC.screen.orientation[data] = orientation[data];
+  }
 }
 
 // DOESN'T WORK!!!!!!
