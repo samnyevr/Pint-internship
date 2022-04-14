@@ -1,7 +1,59 @@
-// Global Variables
-/*
+/**
+ * Filename: collector.js
+ * Author: Sam Nye
+ * Last Date Modified: Oct 14, 2022
+ * Description: TODO
  */
+
+/*********************/
+/**     CLASSES     **/
+/*********************/
+
+// Queue class to enqueue dequeue and push to localStorage
+class Queue {
+  constructor(name) {
+    this.container = JSON.parse(localStorage.getItem([name])) || [];
+    this.name = name;
+  }
+
+  enqueue(data) {
+    this.container.push(data);
+    localStorage.setItem(this.name, JSON.stringify(this.container));
+  }
+
+  dequeue() {
+    const data = this.container.shift();
+    localStorage.setItem(this.name, JSON.stringify(this.container));
+    return data;
+  }
+
+  empty() {
+    this.container.length = 0;
+    localStorage.removeItem(this.name);
+  }
+
+  get length() {
+    return this.container.length;
+  }
+
+  get isEmpty() {
+    return !!this.container.length;
+  }
+
+  get peek() {
+    return this.container[0];
+  }
+}
+
+/**********************/
+/** GLOBAL VARIABLES **/
+/**********************/
+
+const API = "https://httplayground.introweb.tech/post";
+
 const STATIC = {
+  dataType: "STATIC",
+  timeStamp: undefined,
   screen: {
     availHeight: undefined,
     availLeft: undefined,
@@ -66,13 +118,8 @@ const STATIC = {
 };
 
 const DYNAMIC = {
-  screen: {
-    orientation: {
-      angle: undefined,
-      type: undefined,
-      onchange: undefined,
-    },
-  },
+  dataType: "DYNAMIC",
+  timeStamp: undefined,
   performance: {
     startTime: undefined,
     fetchStart: undefined,
@@ -93,12 +140,8 @@ const DYNAMIC = {
 };
 
 const EVENT = {
-  mousePosition: [],
-  mouseClicks: [],
-  keystrokes: {
-    keydown: [],
-    keyup: [],
-  },
+  dataType: "EVENT",
+  timeStamp: undefined,
   timing: {
     pageEnter: null,
     pageLeave: null,
@@ -106,39 +149,37 @@ const EVENT = {
   },
 };
 
-// Queue class to enqueue dequeue and push to localStorage
-class Queue {
-  constructor() {
-    this.container = JSON.parse(localStorage.getItem(["queue"])) || [];
-  }
+// initialize the queue array for storing all the collected data
+let queue = new Queue("queue");
 
-  set enqueue(data) {
-    this.container.push(data);
-    localStorage.setItem("queue", JSON.stringify(this.container));
-  }
+// initialize the bundled data for sending to an end point
+let bundle = new Queue("bundle");
 
-  get dequeue() {
-    const data = this.container.shift();
-    localStorage.setItem("queue", JSON.stringify(this.container));
-    return data;
-  }
+/************************************/
+/**     PROGRAM INITIALIZATION     **/
+/************************************/
 
-  get length() {
-    return this.container.length;
-  }
+document.addEventListener("DOMContentLoaded", init);
 
-  get isEmpty() {}
+// initialize all queries and event listeners
+async function init() {
+  bindEventListeners();
 
-  get peek() {
-    return this.container[0];
-  }
+  // collect initial STATIC data
+  collectStatic();
+  queue.enqueue(STATIC);
+
+  // collect initial window.performance data
+  await collectPerformance();
+  queue.enqueue(DYNAMIC);
+
+  // send();
 }
 
-// initialize the queue array for storing all the collected data
-let queue = new Queue();
-// let queue = JSON.parse(localStorage.getItem(["queue"])) || [];
+/******************************/
+/**     EVENTLISTENERS       **/
+/******************************/
 
-// binding event listeners
 function bindEventListeners() {
   let mousemoveEvents = 0;
 
@@ -146,125 +187,51 @@ function bindEventListeners() {
   window.addEventListener("mousemove", (e) => {
     mousemoveEvents += 1;
     if (mousemoveEvents % 10 != 0) return;
-    let newMouseMove = {
-      coordinates: {
-        clientX: e.clientX,
-        clientY: e.clientY,
-        layerX: e.layerX,
-        layerY: e.layerY,
-        offsetX: e.offsetX,
-        offsetY: e.offsetY,
-        pageX: e.pageX,
-        pageY: e.pageY,
-        screenX: e.screenX,
-        screenY: e.screenY,
-        x: e.x,
-        y: e.y,
-      },
-      altKey: e.altKey,
-      ctrlKey: e.ctrlKey,
-      shiftKey: e.shiftKey,
-      timestamp: e.timeStamp,
-    };
-    EVENT.mousePosition.push(newMouseMove);
-    queue.enqueue = EVENT;
+    queue.enqueue(collectMoveEvents(e));
   });
 
   // Record all mouse clicks inside the window
   window.addEventListener("click", (e) => {
-    let newClick = {
-      coordinates: {
-        clientX: e.clientX,
-        clientY: e.clientY,
-        layerX: e.layerX,
-        layerY: e.layerY,
-        offsetX: e.offsetX,
-        offsetY: e.offsetY,
-        pageX: e.pageX,
-        pageY: e.pageY,
-        screenX: e.screenX,
-        screenY: e.screenY,
-        x: e.x,
-        y: e.y,
-      },
-      altKey: e.altKey,
-      ctrlKey: e.ctrlKey,
-      shiftKey: e.shiftKey,
-      timestamp: e.timeStamp,
-    };
-    EVENT.mouseClicks.push(newClick);
-    queue.enqueue = EVENT;
+    queue.enqueue(collectMoveEvents(e));
   });
 
   // Record all keydowns inside the window
   window.addEventListener("keydown", (e) => {
-    let newKeydown = {
-      key: e.key,
-      code: e.code,
-      altKey: e.altKey,
-      ctrlKey: e.ctrlKey,
-      shiftKey: e.shiftKey,
-      timestamp: e.timeStamp,
-    };
-    EVENT.keystrokes.keydown.push(newKeydown);
-    queue.enqueue = EVENT;
+    queue.enqueue(collectMoveEvents(e));
   });
 
   // Record all keyups inside the window
   window.addEventListener("keyup", (e) => {
-    let newKeyup = {
-      key: e.key,
-      code: e.code,
-      altKey: e.altKey,
-      ctrlKey: e.ctrlKey,
-      shiftKey: e.shiftKey,
-      timestamp: e.timeStamp,
+    queue.enqueue(collectMoveEvents(e));
+  });
+
+  // collect the screen orientation event data
+  screen.orientation.addEventListener("change", (e) => {
+    let orientationEvent = {
+      dataType: "ORIENTATION",
+      timeStamp: new Date().getTime(),
+      eventTimeStamp: e.timeStamp,
+      angle: window.screen.orientation.angle,
+      type: window.screen.orientation.type,
     };
-    EVENT.keystrokes.keyup.push(newKeyup);
-    queue.enqueue = EVENT;
+    queue.enqueue(orientationEvent);
   });
 }
 
-// initialize all queries and event listeners
-async function init() {
-  bindEventListeners();
-  collectStatic();
-
-  // collect initial STATIC data
-  queue.enqueue = STATIC;
-
-  // collect initial window.performance data
-  await collectPerformance();
-  queue.enqueue = DYNAMIC;
-
-  // collect();
-  // send();
-}
-
-// set an interval of 10seconds to collect dynamic data
-function collect() {
-  let interval = setInterval(async () => {
-    await collectPerformance();
-    queue.enqueue = DYNAMIC;
-  }, 10000);
-}
-
-// send to end point whene there are still data collected in the queue
-// else loop through this fucntion again in 5 seconds to check if there are still data
-async function send() {
-  console.log("sending data");
-  while (queue.length > 0) {
-    console.log(queue.length);
-    let reseult = await fetchEndPoint("https://httpbin.org/post");
-    console.log(reseult);
-  }
-
-  setTimeout(send, 5000);
-}
+/******************************/
+/**     HELPER FUNCTIONS     **/
+/******************************/
 
 // collect all the static data
 function collectStatic() {
   for (let data in STATIC) {
+    if (data == "dataType") {
+      continue;
+    }
+    if (data === "timeStamp") {
+      STATIC[data] = new Date().getTime();
+      continue;
+    }
     if (isObject(STATIC[data])) {
       for (let innerData in STATIC[data]) {
         STATIC[data][innerData] = window[data][innerData];
@@ -281,72 +248,106 @@ function collectPerformance() {
   do {
     return new Promise((resolve) => {
       setTimeout(() => {
-        DYNAMIC.performance.startTime = perf.startTime;
-        DYNAMIC.performance.fetchStart = perf.fetchStart;
-        DYNAMIC.performance.requestStart = perf.requestStart;
-        DYNAMIC.performance.responseStart = perf.responseStart;
-        DYNAMIC.performance.responseEnd = perf.responseEnd;
-        DYNAMIC.performance.domInteractive = perf.domInteractive;
-        DYNAMIC.performance.domContentLoadedEventStart =
-          perf.domContentLoadedEventStart;
-        DYNAMIC.performance.domContentLoadedEventEnd =
-          perf.domContentLoadedEventEnd;
-        DYNAMIC.performance.domComplete = perf.domComplete;
-        DYNAMIC.performance.loadEventStart = perf.loadEventStart;
-        DYNAMIC.performance.loadEventEnd = perf.loadEventEnd;
-        DYNAMIC.performance.duration = perf.duration;
-        DYNAMIC.performance.transferSize = perf.transferSize;
-        DYNAMIC.performance.decodedBodySize = perf.decodedBodySize;
-        DYNAMIC.performance.ready = true;
+        for (let data in DYNAMIC.performance) {
+          if (data === "ready") {
+            DYNAMIC.performance[data] = true;
+            continue;
+          }
+          DYNAMIC.performance[data] = perf[data];
+        }
+
+        DYNAMIC["timeStamp"] = new Date().getTime();
         resolve("resovled");
       });
     }, 250);
   } while (perf.loadEventEnd != 0);
 }
 
-// collect the screen orientation dynamic data
-function collectScreen() {
-  let orientation = window.screen.orientation;
-  for (let data in orientation) {
-    DYNAMIC.screen.orientation[data] = orientation[data];
-  }
-}
-
-// DOESN'T WORK!!!!!!
-// NEED DEEP OBJECT COPY THINGY
-function initData(data, windowData) {
-  if (!isObject(data)) {
-    return null;
-  }
-  for (let child in data) {
-    if (isObject(data[child])) {
-      data[child] = initData(data[child], windowData);
-    } else {
-      data[child] = windowData[child];
+// collect mousemove, click, keydown, or keyup event data
+function collectMoveEvents(e) {
+  let {
+    type,
+    clientX,
+    clientY,
+    layerX,
+    layerY,
+    offsetX,
+    offsetY,
+    pageX,
+    pageY,
+    screenX,
+    screenY,
+    x,
+    y,
+    key,
+    code,
+    altKey,
+    ctrlKey,
+    shiftKey,
+    timeStamp,
+  } = e;
+  let tempArray = {
+    type,
+    clientX,
+    clientY,
+    layerX,
+    layerY,
+    offsetX,
+    offsetY,
+    pageX,
+    pageY,
+    screenX,
+    screenY,
+    x,
+    y,
+    key,
+    code,
+    altKey,
+    ctrlKey,
+    shiftKey,
+    timeStamp,
+  };
+  let eventObject = {
+    dataType: type.toUpperCase(),
+    timeStamp: new Date().getTime(),
+    eventTimeStamp: timeStamp,
+  };
+  for (let data in tempArray) {
+    if (
+      tempArray[data] !== undefined &&
+      data !== "timeStamp" &&
+      data !== "type"
+    ) {
+      eventObject[data] = tempArray[data];
     }
   }
-  return data;
+  return eventObject;
 }
 
-// Helper Function
-// setter for localStorage to make object or array into string
-Storage.prototype.set = (key, value) => {
-  if (isObject(value)) {
-    localStorage.setItem(key, JSON.stringify(value));
-  } else {
-    localStorage.setItem(key, value);
+// send to end point whene there are still data collected in the queue
+// else loop through this fucntion again in 5 seconds to check if there are still data
+async function send() {
+  console.log("sending data");
+  while (queue.length > 0) {
+    console.log(queue.length);
+    let reseult = await fetchEndPoint(API);
+    console.log(reseult);
   }
-};
 
-// Helper Function
-// getting for localStorage to turn the result back into object or array
-Storage.prototype.get = (key) => {
-  try {
-    return JSON.parse(localStorage.getItem(key));
-  } catch {
-    return localStorage.getItem(key);
+  setTimeout(send, 5000);
+}
+
+// packaging the data
+function packageData() {
+  let packages = [];
+  if (queue.length > 0) {
+    for (let index = 0; index < queue.length; index++) {
+      packages.push(queue.dequeue);
+    }
   }
-};
+  // TODO can't be enqueue, has to be the first item
+  queue.enqueue(packages);
+}
 
 // Helper Function
 // check if a pass in value is an object
@@ -359,16 +360,15 @@ async function fetchEndPoint(url) {
   try {
     let response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(queue.dequeue),
+      body: JSON.stringify(queue.peek),
     });
     if (!response.ok) {
       throw new Error(`an error has occured: ${response.status}`);
     }
+    queue.dequeue;
     let data = await response.json();
     return data;
   } catch (error) {
     return error;
   }
 }
-
-document.addEventListener("DOMContentLoaded", init);
