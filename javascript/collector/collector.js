@@ -37,7 +37,7 @@ class Queue {
   }
 
   get isEmpty() {
-    return !!this.container.length;
+    return !this.container.length;
   }
 
   get peek() {
@@ -49,7 +49,7 @@ class Queue {
 /** GLOBAL VARIABLES **/
 /**********************/
 
-const API = "https://httplayground.introweb.tech/post";
+const API = "https://httpbin.org/post"; //"https://httplayground.introweb.tech/post";
 
 const STATIC = {
   dataType: "STATIC",
@@ -173,7 +173,7 @@ async function init() {
   await collectPerformance();
   queue.enqueue(DYNAMIC);
 
-  // send();
+  send();
 }
 
 /******************************/
@@ -324,35 +324,33 @@ function collectMoveEvents(e) {
   return eventObject;
 }
 
+// check if a passed in value is an object
+function isObject(value) {
+  return !!(value && typeof value === "object" && !Array.isArray(value));
+}
+
 // send to end point whene there are still data collected in the queue
 // else loop through this fucntion again in 5 seconds to check if there are still data
 async function send() {
   console.log("sending data");
-  while (queue.length > 0) {
-    console.log(queue.length);
+  if (queue.length > 0) {
+    bundleData();
+  }
+  while (bundle.length > 0) {
     let reseult = await fetchEndPoint(API);
-    console.log(reseult);
   }
 
   setTimeout(send, 5000);
 }
 
-// packaging the data
-function packageData() {
-  let packages = [];
-  if (queue.length > 0) {
-    for (let index = 0; index < queue.length; index++) {
-      packages.push(queue.dequeue);
-    }
+// bundling up the data to send to end point
+function bundleData() {
+  let tempArray = [];
+  while (!queue.isEmpty) {
+    tempArray.push(queue.dequeue());
   }
-  // TODO can't be enqueue, has to be the first item
-  queue.enqueue(packages);
-}
-
-// Helper Function
-// check if a pass in value is an object
-function isObject(value) {
-  return !!(value && typeof value === "object" && !Array.isArray(value));
+  bundle.enqueue(tempArray);
+  return true;
 }
 
 // fetching from an end point
@@ -360,12 +358,12 @@ async function fetchEndPoint(url) {
   try {
     let response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify(queue.peek),
+      body: JSON.stringify(bundle.peek),
     });
     if (!response.ok) {
       throw new Error(`an error has occured: ${response.status}`);
     }
-    queue.dequeue;
+    bundle.dequeue();
     let data = await response.json();
     return data;
   } catch (error) {
