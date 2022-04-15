@@ -2,7 +2,8 @@
  * Filename: collector.js
  * Author: Sam Nye
  * Last Date Modified: Oct 14, 2022
- * Description: TODO
+ * Description: This is a light weight script for some data analytic collection
+ *              could be expanded upon with additional data needed
  */
 
 /*********************/
@@ -49,8 +50,10 @@ class Queue {
 /** GLOBAL VARIABLES **/
 /**********************/
 
-const API = "https://httpbin.org/post"; //"https://httplayground.introweb.tech/post";
+// the end point that this script will send the data to
+const API = "https://httpbin.org/post";
 
+// static data that doesn't change even when the page refreshed
 const STATIC = {
   dataType: "STATIC",
   timeStamp: undefined,
@@ -117,6 +120,7 @@ const STATIC = {
   screenTop: undefined,
 };
 
+// static data that does change when the page refreshed
 const DYNAMIC = {
   dataType: "DYNAMIC",
   timeStamp: undefined,
@@ -139,15 +143,17 @@ const DYNAMIC = {
   },
 };
 
-const EVENT = {
-  dataType: "EVENT",
-  timeStamp: undefined,
-  timing: {
-    pageEnter: null,
-    pageLeave: null,
-    currPage: null,
-  },
+// page data
+const PAGE = {
+  dataType: "PAGE",
+  pageEnter: undefined,
+  currentPage: undefined,
+  pageLeave: undefined,
 };
+
+/**********************/
+/** CACHED VARIABLES **/
+/**********************/
 
 // initialize the queue array for storing all the collected data
 let queue = new Queue("queue");
@@ -158,6 +164,10 @@ let bundle = new Queue("bundle");
 /************************************/
 /**     PROGRAM INITIALIZATION     **/
 /************************************/
+
+// getting current time and the URL path when the user visit the page
+PAGE.pageEnter = new Date().getTime();
+PAGE.currentPage = window.location.pathname;
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -370,3 +380,11 @@ async function fetchEndPoint(url) {
     return error;
   }
 }
+
+// send the page data through sendBeacon API before the user leave the page
+addEventListener("visibilitychange", (e) => {
+  if (document.visibilityState === "hidden") {
+    PAGE.pageLeave = new Date().getTime();
+    window.navigator.sendBeacon(API, EVENT);
+  }
+});
