@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bot Demo</title>
+    <script type="module" src="bot.js"></script>
+    <script type="module" src="anti-bot.js"></script>
+    <style>
+      #hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bot Demo</h1>
+    <button id="bot">I am a bot</button>
+    <form method="GET">
+      <label for="">Are you a bot? <input type="text" /></label>
+      <label id="hidden" for="honeytrap"
+        >Name<input type="text" id="honeytrap" aria-hidden="true"
+      /></label>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
