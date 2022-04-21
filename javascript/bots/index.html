@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bot Demo</title>
     <script type="module" src="bot.js"></script>
-    <script type="module" src="anti-bot.js"></script>
+    <script type="module" src="security.js"></script>
     <style>
+      body {
+        text-align: center;
+      }
       #hidden {
         display: none;
+      }
+      flex {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      fieldset {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        margin: 20px auto;
+      }
+      fieldset label {
+        margin-bottom: 20px;
+      }
+
+      fieldset label:first-of-type {
+        margin-top: 10px;
+      }
+
+      input {
+        padding: 10px 5px;
       }
     </style>
   </head>
@@ -17,41 +41,80 @@
       <h1>Bot Demo</h1>
     </header>
     <main>
-      <section>
-        <h2>Bot Functionality</h2>
-        <label for="botBasic"
-          ><input id="botBasic" name="botBasic" type="checkbox" />Basic</label
-        >
-        <label for="botMouse"
-          ><input id="botMouse" name="botMouse" type="checkbox" />Mouse
-          Movement</label
-        >
-      </section>
-      <button id="bot" type="button">Activate Bot</button>
+      <flex>
+        <section>
+          <h2>Bot Functionality</h2>
+          <label for="botEnhanced"
+            ><input
+              id="botEnhanced"
+              name="botFunction"
+              type="checkbox"
+              value="botEnhanced"
+            />Check for Hidden Attributes</label
+          >
+          <label for="botMouse"
+            ><input
+              id="botMouse"
+              name="botFunction"
+              type="checkbox"
+              value="botMouse"
+            />Imitate Mouse Movement</label
+          >
+        </section>
 
-      <section>
-        <h2>Security Functionality</h2>
-        <label for="basic"
-          ><input id="basic" name="basic" type="checkbox" />Basic</label
-        >
-        <label for="mouse"
-          ><input id="mouse" name="mouse" type="checkbox" />Mouse
-          Movement</label
-        >
-      </section>
+        <section>
+          <h2>Security Functionality</h2>
+          <label for="basic"
+            ><input
+              id="basic"
+              name="securityFunction"
+              type="checkbox"
+              value="basic"
+            />Blocking Basic Bots</label
+          >
+          <label for="mouse"
+            ><input
+              id="mouse"
+              name="securityFunction"
+              type="checkbox"
+              value="mouse"
+            />Detecting Mouse Movement</label
+          >
+        </section>
+      </flex>
 
-      <form method="GET">
-        <label for="isbot">
-          Are you a bot?
-          <input id="isbot" name="isbot" type="text" />
-        </label>
-        <label id="hidden" for="honeytrap">
-          Name
-          <input type="text" id="honeytrap" aria-hidden="true" />
-        </label>
-        <input type="text" hidden />
-        <button type="submit">Submit</button>
+      <form method="GET" id="survey">
+        <fieldset>
+          <legend>Basic Form</legend>
+          <label for="favNumber">
+            What's your favorite number
+            <input id="favNumber" name="favNumber" type="number" />
+          </label>
+          <label for="skyColor">
+            What's the color of the sky
+            <input id="skyColor" name="skyColor" type="text" />
+          </label>
+          <label for="isBot">
+            Are you a bot?
+            <input id="isBot" name="isBot" type="text" />
+          </label>
+          <label id="hidden" for="honeyPot">
+            Name
+            <input type="text" id="honeyPot" aria-hidden="true" />
+          </label>
+          <noscript>
+            <label for="email">
+              Email Address
+              <input type="email" id="email" />
+            </label>
+          </noscript>
+          <input type="text" hidden />
+        </fieldset>
       </form>
+
+      <button type="submit" form="survey">Submit</button>
+      <button id="bot" type="button">Activate Bot</button>
+      <p id="message"></p>
     </main>
   </body>
 </html>
