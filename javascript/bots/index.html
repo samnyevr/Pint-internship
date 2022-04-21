@@ -13,14 +13,45 @@
     </style>
   </head>
   <body>
-    <h1>Bot Demo</h1>
-    <button id="bot">I am a bot</button>
-    <form method="GET">
-      <label for="">Are you a bot? <input type="text" /></label>
-      <label id="hidden" for="honeytrap"
-        >Name<input type="text" id="honeytrap" aria-hidden="true"
-      /></label>
-      <button type="submit">Submit</button>
-    </form>
+    <header>
+      <h1>Bot Demo</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Bot Functionality</h2>
+        <label for="botBasic"
+          ><input id="botBasic" name="botBasic" type="checkbox" />Basic</label
+        >
+        <label for="botMouse"
+          ><input id="botMouse" name="botMouse" type="checkbox" />Mouse
+          Movement</label
+        >
+      </section>
+      <button id="bot" type="button">Activate Bot</button>
+
+      <section>
+        <h2>Security Functionality</h2>
+        <label for="basic"
+          ><input id="basic" name="basic" type="checkbox" />Basic</label
+        >
+        <label for="mouse"
+          ><input id="mouse" name="mouse" type="checkbox" />Mouse
+          Movement</label
+        >
+      </section>
+
+      <form method="GET">
+        <label for="isbot">
+          Are you a bot?
+          <input id="isbot" name="isbot" type="text" />
+        </label>
+        <label id="hidden" for="honeytrap">
+          Name
+          <input type="text" id="honeytrap" aria-hidden="true" />
+        </label>
+        <input type="text" hidden />
+        <button type="submit">Submit</button>
+      </form>
+    </main>
   </body>
 </html>

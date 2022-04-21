@@ -1,14 +1,48 @@
-let form = document.querySelector("form");
-let trap = document.querySelector("#honeytrap");
+/*******************************************
+ * Filename: antiBot.js
+ * Author: Sam Nye
+ * Last Date Modified: April 21, 2022
+ * Description: This is the scripts for combating the bots for a simple security implementation
+ *
+ *
+ ******************************************/
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("is this called?");
-  if (trap.value !== "") {
-    console.log(trap.value);
-    form.action = "./fail.html";
-  } else {
-    form.action = "./success.html";
-  }
-  form.submit();
-});
+/*******************
+ * Global Variable *
+ *******************/
+const ELEMS = {
+  form: undefined,
+  trap: undefined,
+};
+
+/*********************
+ * Query Assignments *
+ ********************/
+function assignQuery() {
+  ELEMS.form = document.querySelector("form");
+  ELEMS.trap = document.querySelector("#honeytrap");
+}
+
+/*************************
+ * EventListener Binding *
+ ************************/
+function bindEventListener() {
+  ELEMS.form.addEventListener("submit", (e) => {
+    if (ELEMS.trap.value !== "") {
+      ELEMS.form.action = "./fail.html";
+    } else {
+      ELEMS.form.action = "./success.html";
+    }
+  });
+}
+
+/*****************
+ * Init Function *
+ *****************/
+function init() {
+  assignQuery();
+  bindEventListener();
+}
+
+// initialize after page load
+window.addEventListener("DOMContentLoaded", init);
