@@ -16,6 +16,7 @@ const ELEMS = {
   trap: undefined,
   functionalities: undefined,
   messageBox: undefined,
+  botButton: undefined,
   mouseMove: undefined,
   mouseSuccess: undefined,
 };
@@ -33,6 +34,7 @@ function assignGlobal() {
   ];
   ELEMS.mouseMove = 0;
   ELEMS.mouseSuccess = false;
+  ELEMS.botButton = document.querySelector("#bot");
 }
 
 /*************************
@@ -64,6 +66,9 @@ function bindEventListener() {
 
     // reset form for next submission
     ELEMS.form.reset();
+  });
+
+  ELEMS.botButton.addEventListener("click", () => {
     ELEMS.mouseMove = 0;
     ELEMS.mouseSuccess = false;
   });
