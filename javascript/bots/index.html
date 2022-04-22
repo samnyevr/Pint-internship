@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bot Demo</title>
-    <script type="module" src="bot.js"></script>
+
     <script type="module" src="security.js"></script>
+    <script type="module" src="bot.js"></script>
     <style>
       body {
         text-align: center;
@@ -16,6 +17,10 @@
       flex {
         display: flex;
         justify-content: space-evenly;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
       }
       fieldset {
         width: fit-content;
@@ -70,7 +75,7 @@
               name="securityFunction"
               type="checkbox"
               value="basic"
-            />Blocking Basic Bots</label
+            />Blocking Bot with hidden form field</label
           >
           <label for="mouse"
             ><input
@@ -90,13 +95,13 @@
             What's your favorite number
             <input id="favNumber" name="favNumber" type="number" />
           </label>
-          <label for="skyColor">
-            What's the color of the sky
-            <input id="skyColor" name="skyColor" type="text" />
+          <label for="carBrand">
+            What's the the brand of your car
+            <input id="carBrand" name="carBrand" type="text" />
           </label>
           <label for="isBot">
             Are you a bot?
-            <input id="isBot" name="isBot" type="text" required />
+            <input id="isBot" name="isBot" type="text" />
           </label>
           <label id="hidden" for="honeyPot">
             Name
@@ -112,7 +117,7 @@
         </fieldset>
       </form>
 
-      <button type="submit" form="survey">Submit</button>
+      <button type="submit" form="survey">Regular Submit</button>
       <button id="bot" type="button">Activate Bot</button>
       <p id="message"></p>
     </main>

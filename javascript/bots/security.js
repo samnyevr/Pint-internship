@@ -41,6 +41,11 @@ function assignGlobal() {
  * EventListener Binding *
  ************************/
 function bindEventListener() {
+  ELEMS.botButton.addEventListener("click", () => {
+    ELEMS.mouseMove = 0;
+    ELEMS.mouseSuccess = false;
+  });
+
   ELEMS.form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -66,11 +71,6 @@ function bindEventListener() {
 
     // reset form for next submission
     ELEMS.form.reset();
-  });
-
-  ELEMS.botButton.addEventListener("click", () => {
-    ELEMS.mouseMove = 0;
-    ELEMS.mouseSuccess = false;
   });
 
   // check if the user has moved their mouse or not
