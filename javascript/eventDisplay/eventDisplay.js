@@ -140,7 +140,7 @@ function bindEventListeners() {
         await setTimeout(async () => {
           ELEMS.mouse.click.hidden = false;
 
-          // setting the position of the click
+          // set the position of the click
           ELEMS.mouse.click.style.left = `${item.clientX}px`;
           ELEMS.mouse.click.style.top = `${item.clientY}px`;
 
@@ -164,7 +164,7 @@ function bindEventListeners() {
             keyPositionX += 20;
           }
 
-          // setting the click to disappear after 3ms
+          // set the click to disappear after 3ms
           setTimeout(() => {
             ELEMS.mouse.click.hidden = true;
             ELEMS.keys.shiftKey.hidden = true;
@@ -210,15 +210,76 @@ function bindEventListeners() {
     });
 
     ELEMS.events.mouseMoveEvent.forEach(async (item) => {
+      let keyPositionX = 10;
+      let keyPositionY = "70vh";
+
       if (prevTime) {
         let waitTime = item.timeStampe - prevTime;
         await setTimeout(() => {
+          // set the position of the cursors
           ELEMS.mouse.cursor.style.left = `${item.clientX}px`;
           ELEMS.mouse.cursor.style.top = `${item.clientY}px`;
+
+          if (item.altKey) {
+            ELEMS.keys.altKey.hidden = false;
+            ELEMS.keys.altKey.style.left = `${keyPositionX}vw`;
+            ELEMS.keys.altKey.style.top = keyPositionY;
+            keyPositionX += 20;
+          }
+          if (item.ctrlKey) {
+            ELEMS.keys.ctrlKey.hidden = false;
+            ELEMS.keys.ctrlKey.style.left = `${keyPositionX}vw`;
+            ELEMS.keys.ctrlKey.style.top = keyPositionY;
+            keyPositionX += 20;
+          }
+
+          if (item.shiftKey) {
+            ELEMS.keys.shiftKey.hidden = false;
+            ELEMS.keys.shiftKey.style.left = `${keyPositionX}vw`;
+            ELEMS.keys.shiftKey.style.top = keyPositionY;
+            keyPositionX += 20;
+          }
+
+          // set the click to disappear after 3ms
+          setTimeout(() => {
+            ELEMS.keys.shiftKey.hidden = true;
+            ELEMS.keys.altKey.hidden = true;
+            ELEMS.keys.ctrlKey.hidden = true;
+          }, 500);
         }, waitTime);
       } else {
         ELEMS.mouse.cursor.style.left = `${item.clientX}px`;
         ELEMS.mouse.cursor.style.top = `${item.clientY}px`;
+
+        if (item.altKey) {
+          ELEMS.keys.altKey.hidden = false;
+          ELEMS.keys.altKey.style.left = `${keyPositionX}vw`;
+          ELEMS.keys.altKey.style.top = keyPositionY;
+          keyPositionX += 20;
+        }
+        if (item.ctrlKey) {
+          ELEMS.keys.ctrlKey.hidden = false;
+          ELEMS.keys.ctrlKey.style.left = `${keyPositionX}vw`;
+          ELEMS.keys.ctrlKey.style.top = keyPositionY;
+          keyPositionX += 20;
+        }
+
+        if (item.shiftKey) {
+          ELEMS.keys.shiftKey.hidden = false;
+          ELEMS.keys.shiftKey.style.left = `${keyPositionX}vw`;
+          ELEMS.keys.shiftKey.style.top = keyPositionY;
+          keyPositionX += 20;
+        }
+        // set the position of the click
+        ELEMS.mouse.click.style.left = `${item.clientX}px`;
+        ELEMS.mouse.click.style.top = `${item.clientY}px`;
+
+        // set the click to disappear after 3ms
+        setTimeout(() => {
+          ELEMS.keys.shiftKey.hidden = true;
+          ELEMS.keys.altKey.hidden = true;
+          ELEMS.keys.ctrlKey.hidden = true;
+        }, 500);
       }
       prevTime = item.timeStampe;
     });
